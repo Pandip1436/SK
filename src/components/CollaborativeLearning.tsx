@@ -1,20 +1,20 @@
 export default function CollaborativeLearning() {
   const features = [
     {
-      title: "Live Student Selection",
-      description: "Randomly picks students to answer on-screen, keeping everyone alert and engaged."
+      title: "Group MCQ Tournaments",
+      description: "Join team-based battles for Chemistry Organic reactions or Physics mechanics to build competitive speed."
     },
     {
-      title: "Smart Board Integration",
-      description: "Runs seamlessly on the classroom screen for a shared experience."
+      title: "Real-time Leaderboards",
+      description: "See your All-India ranking update instantly as you solve high-yield NEET problems together."
     },
     {
-      title: "Instant Practice Mode",
-      description: "Turn any question or test into a live activity with just one click."
+      title: "Collaborative NCERT Decoding",
+      description: "Work in groups to master complex Biological diagrams and case studies through shared digital canvases."
     },
     {
-      title: "Encourages Accountability",
-      description: "Keeps students motivated to stay prepared and participate."
+      title: "Healthy Peer Competition",
+      description: "Stay motivated by seeing how your peers approach tough questions, encouraging collective excellence."
     }
   ];
 
@@ -28,7 +28,7 @@ export default function CollaborativeLearning() {
               Play Together - <span className="font-script text-brand-gold italic font-normal block mt-2">Learn Together!</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed max-w-lg">
-              Make any quiz or activity a team sport! SK Intelligence takes care of student grouping, live scoring, and more, turning everyday lessons into high-energy, collaborative classroom experiences!
+              Turn NEET preparation into a team sport! SK Intelligence enables competitive MCQ battles, group problem-solving, and live ranking, making every coaching session high-energy and collaborative.
             </p>
           </div>
 

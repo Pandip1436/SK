@@ -37,11 +37,26 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right Section (Empty in template screenshot) */}
-        <div className="w-[180px] hidden lg:block" />
+        {/* Right Section - CTA Button */}
+        <div className="hidden lg:flex items-center justify-end w-[180px]">
+          <a
+            href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'm%20ready%20to%20join%20the%20NEET%20success%20journey!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2.5 bg-brand-orange text-white text-xs font-black rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-orange/20"
+          >
+            Join Now
+          </a>
+        </div>
 
-        {/* Mobile Menu Button (Placeholder) */}
-        <div className="lg:hidden">
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden flex items-center gap-4">
+          <a
+            href="https://wa.me/919095636001"
+            className="px-4 py-2 bg-brand-orange text-white text-[10px] font-black rounded-full uppercase tracking-widest"
+          >
+            Join
+          </a>
           <button className="text-white p-2">
             <div className="w-6 h-0.5 bg-white mb-1.5" />
             <div className="w-6 h-0.5 bg-white mb-1.5" />
