@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import AboutUs from './components/AboutUs'
 import VideoSection from './components/VideoSection'
 import ExpertFaculty from './components/TeacherAssistant'
 import NEETPrograms from './components/TeachingWithoutBorders'
@@ -12,7 +13,6 @@ import InstantDoubtSolving from './components/InstantDoubtSolving'
 import AskWhileLearning from './components/AskWhileLearning'
 import MultilingualSupport from './components/MultilingualSupport'
 import Achievers from './components/Achievers'
-import Stats from './components/Stats'
 import CollaborativeLearning from './components/CollaborativeLearning'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
@@ -37,7 +37,8 @@ function App() {
         <InstantDoubtSolving />
         <AskWhileLearning />
         <Achievers />
-        <Stats />
+        <AboutUs />
+
       </main>
 
       <Footer />

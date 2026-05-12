@@ -10,6 +10,7 @@ export default function Navbar() {
     { name: 'Mock Tests', href: '#assessments' },
     { name: 'AI Mentor', href: '#copilot' },
     { name: 'Achievers', href: '#achievers' },
+    { name: 'About Us', href: '#about' },
   ];
 
   return (
