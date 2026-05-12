@@ -54,7 +54,7 @@ export default function SmarterAssessments() {
         {/* Right Side: Mockup */}
         <div className="relative sticky top-32">
           <div className="absolute inset-0 bg-blue-500/20 blur-[120px] rounded-full animate-pulse" />
-          
+
           <div className="relative glass-card aspect-[16/10] rounded-3xl p-1 border-white/10 shadow-2xl overflow-hidden bg-blue-900">
             <div className="absolute inset-1 bg-white rounded-[1.4rem] p-6 flex flex-col overflow-hidden">
               {/* Question Header */}

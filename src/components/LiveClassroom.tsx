@@ -32,8 +32,8 @@ export default function LiveClassroom() {
       </div>
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start mt-12 md:mt-20">
-        {/* Left Side: Content */}
-        <div className="space-y-10">
+        {/* Right Side: Content */}
+        <div className="space-y-10 order-1 lg:order-2">
           <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
             Monitor Attention. Capture Attendance. Effortlessly.
           </h3>
@@ -55,8 +55,8 @@ export default function LiveClassroom() {
           </div>
         </div>
 
-        {/* Right Side: Mockup */}
-        <div className="relative sticky top-32">
+        {/* Left Side: Mockup */}
+        <div className="relative sticky top-32 order-1 lg:order-1">
           {/* Decorative Elements */}
           <div className="absolute -top-10 -right-10 w-64 h-64 bg-brand-orange/20 rounded-full blur-[100px] animate-pulse" />
           <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand-gold/10 rounded-full blur-[100px] animate-pulse" />
