@@ -88,20 +88,20 @@ export default function CollaborativeLearning() {
                 {/* Left side items to drag */}
                 <div className="col-span-2 grid grid-cols-3 gap-2 place-content-start">
                   {[
-                    { name: 'Bronze', icon: '🥉' },
-                    { name: 'Sea Water', icon: '💧' },
-                    { name: 'Dry cotton', icon: '☁️' },
-                    { name: 'Fibreglass', icon: '🧊' },
-                    { name: 'Glass', icon: '🪟' },
-                    { name: 'Oil', icon: '🛢️' },
+                    { name: 'Silver (Ag)', icon: '🥈' },
+                    { name: 'Copper (Cu)', icon: '🥉' },
+                    { name: 'Distilled H2O', icon: '💧' },
+                    { name: 'Aluminum', icon: '📎' },
+                    { name: 'Rubber', icon: '🩹' },
+                    { name: 'PVC Plastic', icon: '🔌' },
                     { name: 'Mercury', icon: '🌡️' },
-                    { name: 'Platinum', icon: '💍' },
+                    { name: 'Graphite', icon: '✏️' },
                   ].map((item) => (
                     <div key={item.name} className="flex flex-col items-center gap-1">
                       <div className="w-10 h-10 bg-white rounded shadow-sm border border-slate-200 flex items-center justify-center text-xl hover:scale-105 transition-transform cursor-grab">
                         {item.icon}
                       </div>
-                      <span className="text-[9px] font-bold text-[#2A4365] text-center leading-tight">{item.name}</span>
+                      <span className="text-[8px] font-bold text-[#2A4365] text-center leading-tight">{item.name}</span>
                     </div>
                   ))}
                 </div>

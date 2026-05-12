@@ -5,7 +5,11 @@ import ExpertFaculty from './components/TeacherAssistant'
 import NEETPrograms from './components/TeachingWithoutBorders'
 import LiveClassroom from './components/LiveClassroom'
 import SmarterAssessments from './components/SmarterAssessments'
+import SubjectiveEvaluation from './components/SubjectiveEvaluation'
+import OfflineTests from './components/OfflineTests'
 import StudentCopilot from './components/StudentCopilot'
+import InstantDoubtSolving from './components/InstantDoubtSolving'
+import AskWhileLearning from './components/AskWhileLearning'
 import Achievers from './components/Achievers'
 import Stats from './components/Stats'
 import CollaborativeLearning from './components/CollaborativeLearning'
@@ -25,7 +29,11 @@ function App() {
         <ExpertFaculty />
         <CollaborativeLearning />
         <SmarterAssessments />
+        <SubjectiveEvaluation />
+        <OfflineTests />
         <StudentCopilot />
+        <InstantDoubtSolving />
+        <AskWhileLearning />
         <Achievers />
         <Stats />
       </main>
