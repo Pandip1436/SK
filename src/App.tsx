@@ -10,6 +10,7 @@ import OfflineTests from './components/OfflineTests'
 import StudentCopilot from './components/StudentCopilot'
 import InstantDoubtSolving from './components/InstantDoubtSolving'
 import AskWhileLearning from './components/AskWhileLearning'
+import MultilingualSupport from './components/MultilingualSupport'
 import Achievers from './components/Achievers'
 import Stats from './components/Stats'
 import CollaborativeLearning from './components/CollaborativeLearning'
@@ -25,6 +26,7 @@ function App() {
         <Hero />
         <VideoSection />
         <NEETPrograms />
+        <MultilingualSupport />
         <LiveClassroom />
         <ExpertFaculty />
         <CollaborativeLearning />
