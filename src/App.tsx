@@ -12,6 +12,7 @@ import StudentCopilot from './components/StudentCopilot'
 import InstantDoubtSolving from './components/InstantDoubtSolving'
 import AskWhileLearning from './components/AskWhileLearning'
 import MultilingualSupport from './components/MultilingualSupport'
+import FlashcardMastery from './components/FlashcardMastery'
 import Achievers from './components/Achievers'
 import CollaborativeLearning from './components/CollaborativeLearning'
 import ScrollToTop from './components/ScrollToTop'
@@ -27,6 +28,7 @@ function App() {
         <VideoSection />
         <NEETPrograms />
         <MultilingualSupport />
+        <FlashcardMastery />
         <LiveClassroom />
         <ExpertFaculty />
         <CollaborativeLearning />
