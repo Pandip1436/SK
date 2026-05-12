@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #FF6A00;
+  --color-brand-gold: #FDB813;
+  --color-dark-bg: #050505;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-script: 'Caveat', cursive;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    33% {
+      transform: translateY(-15px) rotate(2deg);
+    }
+
+    66% {
+      transform: translateY(5px) rotate(-2deg);
+    }
+  }
+
+  @keyframes glow {
+
+    0%,
+    100% {
+      opacity: 0.6;
+      filter: blur(60px);
+    }
+
+    50% {
+      opacity: 1;
+      filter: blur(90px);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes scan {
+
+    0%,
+    100% {
+      opacity: 0.1;
+    }
+
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes scan-line {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(192px);
+    }
+  }
+
+  @keyframes vortex-spin {
+    from {
+      transform: rotateX(60deg) rotateZ(0deg);
+    }
+
+    to {
+      transform: rotateX(60deg) rotateZ(360deg);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* offset for the fixed h-24 navbar */
+}
+
+:root {
+  font-family: var(--font-sans);
+}
+
+body {
+  @apply bg-dark-bg text-white antialiased;
+  overflow-x: hidden;
+}
+
+/* Enhanced 3D Vortex */
+.hero-vortex {
+  position: absolute;
+  inset: -100% -50%;
+  background: radial-gradient(circle at center, rgba(253, 184, 19, 0.2) 0%, transparent 60%);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.hero-vortex::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(253, 184, 19, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(253, 184, 19, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+  animation: vortex-spin 60s linear infinite;
+}
+
+.hero-vortex::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, var(--color-dark-bg) 70%);
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transform-style: preserve-3d;
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+.text-gradient-gold {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-brand-gold;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
