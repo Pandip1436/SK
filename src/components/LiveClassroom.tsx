@@ -18,7 +18,7 @@ export default function LiveClassroom() {
     },
     {
       title: "Smart Sync with Dashboards",
-      description: "Attendance and engagement data is auto-updated for teachers and school leaders, in real time."
+      description: "Attendance and engagement data is auto-updated for teachers  in real time."
     }
   ];
 
