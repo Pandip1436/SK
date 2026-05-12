@@ -153,22 +153,19 @@ export default function Hero() {
               );
             })}
             {/* Vertical arcs */}
-            {[...Array(24)].map((_, i) => {
-              const a = (i * 15 * Math.PI) / 180;
-              return (
-                <ellipse
-                  key={`ta-${i}`}
-                  cx={250}
-                  cy={250}
-                  rx={30}
-                  ry={180}
-                  stroke="url(#torus-gradient)"
-                  strokeWidth="0.3"
-                  opacity={0.15}
-                  transform={`rotate(${i * 7.5} 250 250)`}
-                />
-              );
-            })}
+            {[...Array(24)].map((_, i) => (
+              <ellipse
+                key={`ta-${i}`}
+                cx={250}
+                cy={250}
+                rx={30}
+                ry={180}
+                stroke="url(#torus-gradient)"
+                strokeWidth="0.3"
+                opacity={0.15}
+                transform={`rotate(${i * 7.5} 250 250)`}
+              />
+            ))}
             <defs>
               <linearGradient id="torus-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#FF6A00" />
