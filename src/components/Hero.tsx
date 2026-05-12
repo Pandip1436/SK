@@ -272,7 +272,7 @@ export default function Hero() {
         </h1>
 
         {/* Sub text */}
-        <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+        <p className="text-white/75 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
           84 out of 100 students coached by us secure Government MBBS seats. 
           Join THE SK LEARNINGS — where expert mentorship meets proven results.
         </p>

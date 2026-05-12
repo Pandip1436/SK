@@ -91,7 +91,7 @@ export default function Footer() {
               Company
             </h5>
             <ul className="space-y-4 text-sm">
-              <li><a href="#" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">About Us</a></li>
+              <li><a href="#about" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">About Us</a></li>
               <li><a href="#faculty" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Our Faculty</a></li>
               <li><a href="#achievers" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Achievers</a></li>
               <li><a href="#" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Careers</a></li>
