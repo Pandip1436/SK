@@ -17,17 +17,17 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-screen-2xl mx-auto px-4 md:px-10 h-16 md:h-24 flex items-center justify-between relative z-50">
         {/* Logo Section */}
-        <div className="flex items-center gap-1.5 md:gap-2 flex-shrink-0 cursor-pointer">
+        <a href="#" className="flex items-center gap-1.5 md:gap-2 flex-shrink-0 cursor-pointer group">
           <div className="flex flex-col leading-none">
-            <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase">THE SK</span>
-            <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase">LEARNINGS</span>
+            <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase group-hover:text-brand-gold transition-colors">THE SK</span>
+            <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase group-hover:text-brand-gold transition-colors">LEARNINGS</span>
           </div>
-          <div className="w-5 h-5 md:w-8 md:h-8 flex items-center justify-center -rotate-12">
-            <svg viewBox="0 0 24 24" className="w-full h-full text-brand-orange fill-current">
+          <div className="w-5 h-5 md:w-8 md:h-8 flex items-center justify-center -rotate-12 group-hover:rotate-0 transition-transform duration-500">
+            <svg viewBox="0 0 24 24" className="w-full h-full text-brand-orange fill-current group-hover:text-brand-gold transition-colors">
               <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
             </svg>
           </div>
-        </div>
+        </a>
 
         {/* Navigation Links - Desktop Only */}
         <div className="hidden lg:flex items-center gap-8 xl:gap-10 absolute left-1/2 -translate-x-1/2 z-10">
