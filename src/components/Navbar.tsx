@@ -30,7 +30,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-xs font-bold text-white/80 hover:text-white transition-colors tracking-tight whitespace-nowrap"
+              className="text-xl font-semibold text-white hover:text-brand-gold transition-colors tracking-tight whitespace-nowrap"
             >
               {link.name}
             </a>
