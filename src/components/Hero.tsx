@@ -95,7 +95,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-24">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-28">
       {/* Warp Speed Star Field Canvas */}
       <canvas
         ref={canvasRef}

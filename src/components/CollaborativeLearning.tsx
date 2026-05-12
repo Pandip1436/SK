@@ -50,11 +50,11 @@ export default function CollaborativeLearning() {
         <div className="relative order-2 lg:order-1">
           {/* Background glow */}
           <div className="absolute inset-0 bg-blue-500/20 blur-[120px] rounded-full animate-pulse" />
-
+          
           <div className="relative glass-card aspect-[4/3] rounded-[2rem] p-3 border-white/10 shadow-2xl overflow-hidden bg-[#0A0A0A]">
             {/* Tablet Inner Bezel */}
             <div className="absolute inset-2 bg-gradient-to-b from-[#e0eaf5] to-[#c8dcf0] rounded-[1.5rem] flex flex-col overflow-hidden shadow-inner">
-
+              
               {/* Header Bar */}
               <div className="h-12 bg-[#4A72B2] flex items-center justify-between px-4 text-white">
                 <div className="flex items-center gap-2">
@@ -84,7 +84,7 @@ export default function CollaborativeLearning() {
 
               {/* Main Content Area */}
               <div className="flex-1 p-4 grid grid-cols-5 gap-4 relative">
-
+                
                 {/* Left side items to drag */}
                 <div className="col-span-2 grid grid-cols-3 gap-2 place-content-start">
                   {[
@@ -136,20 +136,20 @@ export default function CollaborativeLearning() {
                 {/* Bottom Circuit Diagram */}
                 <div className="absolute bottom-4 left-4 right-4 h-24 bg-[#8B3A3A] rounded-xl overflow-hidden shadow-inner border border-red-900/50 flex flex-col justify-end p-2 relative">
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] opacity-20 pointer-events-none" />
-
+                  
                   {/* SVG Circuit Path */}
                   <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
                     <path d="M 50 60 L 50 30 L 150 30 L 150 60" fill="none" stroke="#FF4444" strokeWidth="3" />
                     <path d="M 150 60 L 250 60" fill="none" stroke="#FF4444" strokeWidth="3" />
                   </svg>
-
+                  
                   {/* Components */}
                   <div className="absolute left-8 bottom-8 flex items-end">
                     <div className="w-8 h-8 rounded-full bg-yellow-200 shadow-[0_0_15px_#fde047] flex items-center justify-center border border-yellow-400">
                       <div className="w-4 h-4 rounded-full bg-yellow-400" />
                     </div>
                   </div>
-
+                  
                   <div className="absolute left-[130px] bottom-6 flex items-center gap-1">
                     <div className="w-8 h-4 bg-slate-800 rounded-sm flex items-center justify-between px-1 border border-slate-600">
                       <div className="w-1.5 h-full bg-amber-600" />

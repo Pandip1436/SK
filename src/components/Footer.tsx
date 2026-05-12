@@ -14,7 +14,9 @@ export default function Footer() {
             </p>
           </div>
           <a
-            href="#programs"
+            href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'm%20ready%20to%20start%20my%20NEET%20journey!"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative px-10 py-4 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full text-sm font-black text-white uppercase tracking-wider overflow-hidden transition-transform duration-300 hover:scale-105 shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/40"
           >
             <span className="relative z-10">Start Your Journey →</span>

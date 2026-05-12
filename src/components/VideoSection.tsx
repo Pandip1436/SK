@@ -4,7 +4,7 @@ export default function VideoSection() {
       {/* Background Vortex (continuation) */}
       <div className="absolute inset-0 hero-vortex opacity-50 pointer-events-none" />
       
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+      <div className="max-w-3xl mx-auto text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-serif font-black text-white mb-16 leading-tight">
           The Intelligent <span className="font-script text-brand-gold relative">
             classroom
