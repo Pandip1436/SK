@@ -4,7 +4,7 @@ const scanSubjects = [
   {
     label: 'Biology',
     icon: '🧬',
-    image: 'https://images.unsplash.com/photo-1544652478-6653e09f18a2?auto=format&fit=crop&q=80&w=400',
+    bgGradient: 'from-emerald-100 via-emerald-50 to-white',
     accent: 'from-emerald-500/30',
     headline: 'Scanning Biology chapter…',
     detected: 'Detected: Photosynthesis',
@@ -13,7 +13,7 @@ const scanSubjects = [
   {
     label: 'Physics',
     icon: '🔬',
-    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=400',
+    bgGradient: 'from-blue-100 via-blue-50 to-white',
     accent: 'from-blue-500/30',
     headline: 'Scanning Physics problem…',
     detected: 'Detected: Wave Optics',
@@ -22,7 +22,7 @@ const scanSubjects = [
   {
     label: 'Chemistry',
     icon: '⚗️',
-    image: 'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&q=80&w=400',
+    bgGradient: 'from-fuchsia-100 via-fuchsia-50 to-white',
     accent: 'from-fuchsia-500/30',
     headline: 'Scanning Chemistry reaction…',
     detected: 'Detected: Organic Mechanism',
@@ -31,7 +31,7 @@ const scanSubjects = [
   {
     label: 'Maths',
     icon: '📐',
-    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=400',
+    bgGradient: 'from-amber-100 via-amber-50 to-white',
     accent: 'from-amber-500/30',
     headline: 'Scanning Maths derivation…',
     detected: 'Detected: Calculus',
@@ -121,17 +121,17 @@ export default function InstantDoubtSolving() {
                        })}
                      </div>
 
-                     {/* Textbook Scan Image Mockup */}
+                     {/* Textbook Scan Mockup */}
                      <div className="absolute inset-4 top-20 bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
                         {scanSubjects.map((s, idx) => (
-                          <img
+                          <div
                             key={s.label}
-                            src={s.image}
-                            alt={`${s.label} Scan`}
-                            className={`absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-700 ${
-                              idx === activeScan ? 'opacity-30' : 'opacity-0'
+                            className={`absolute inset-0 bg-gradient-to-br ${s.bgGradient} transition-opacity duration-700 ${
+                              idx === activeScan ? 'opacity-100' : 'opacity-0'
                             }`}
-                          />
+                          >
+                            <div className="absolute inset-0 opacity-30 bg-[repeating-linear-gradient(0deg,transparent_0px,transparent_18px,rgba(100,116,139,0.25)_18px,rgba(100,116,139,0.25)_19px)]" />
+                          </div>
                         ))}
                         <div className={`absolute inset-0 bg-gradient-to-b ${scan.accent} to-transparent transition-opacity duration-700`} />
 

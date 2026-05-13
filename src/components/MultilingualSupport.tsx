@@ -109,7 +109,8 @@ export default function MultilingualSupport() {
                <div className="flex-1 relative flex items-center justify-center overflow-hidden">
                   {/* Stage background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
-                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1532187863486-abf9d39d6627?auto=format&fit=crop&q=80&w=800')] bg-cover bg-center opacity-15" />
+                  {/* Subtle classroom-style gradient backdrop (replaces external image to avoid CORB) */}
+                  <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_30%_20%,rgba(253,184,19,0.5),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(255,106,0,0.4),transparent_50%)]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/50" />
 
                   {/* Animated Chemistry Reaction — the "playing video" content */}
