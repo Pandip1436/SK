@@ -9,6 +9,8 @@ import SmarterAssessments from './components/SmarterAssessments'
 import SubjectiveEvaluation from './components/SubjectiveEvaluation'
 import OfflineTests from './components/OfflineTests'
 import StudentCopilot from './components/StudentCopilot'
+import StudyPlanner from './components/StudyPlanner'
+import CounsellingTracker from './components/CounsellingTracker'
 import InstantDoubtSolving from './components/InstantDoubtSolving'
 import AskWhileLearning from './components/AskWhileLearning'
 import MultilingualSupport from './components/MultilingualSupport'
@@ -36,6 +38,8 @@ function App() {
         <SubjectiveEvaluation />
         <OfflineTests />
         <StudentCopilot />
+        <StudyPlanner />
+        <CounsellingTracker />
         <InstantDoubtSolving />
         <AskWhileLearning />
         <Achievers />
