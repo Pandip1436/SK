@@ -10,6 +10,7 @@ import SubjectiveEvaluation from './components/SubjectiveEvaluation'
 import OfflineTests from './components/OfflineTests'
 import StudentCopilot from './components/StudentCopilot'
 import StudyPlanner from './components/StudyPlanner'
+import FormulaSheetGenerator from './components/FormulaSheetGenerator'
 import CounsellingTracker from './components/CounsellingTracker'
 import InstantDoubtSolving from './components/InstantDoubtSolving'
 import AskWhileLearning from './components/AskWhileLearning'
@@ -32,6 +33,7 @@ function App() {
         <MultilingualSupport />
         <FlashcardMastery />
         <LiveClassroom />
+        <FormulaSheetGenerator />
         <ExpertFaculty />
         <CollaborativeLearning />
         <SmarterAssessments />
