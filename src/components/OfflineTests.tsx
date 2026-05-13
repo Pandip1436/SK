@@ -1,4 +1,61 @@
+import { useEffect, useState } from 'react';
+
+const practiceQuestions = [
+  {
+    label: 'Maths',
+    icon: '📐',
+    question: 'Which of the given values of x and y make the following matrices equal?',
+    visualType: 'matrix',
+    matrixLeft: '[3x+7  5]\n[y+1   2-3x]',
+    matrixRight: '[0  y-2]\n[8  4]',
+    options: ['x = -7/3, y = 8', 'x = -2/3, y = 7', 'x = -1/3, y = 8', 'x = -7/3, y = 5'],
+    correctIdx: 2,
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(245,158,11,0.6)]'
+  },
+  {
+    label: 'Physics',
+    icon: '🔬',
+    question: 'A body of mass 2 kg moves with velocity 5 m/s. Its kinetic energy equals:',
+    visualType: 'formula',
+    formula: 'KE = ½ m v²',
+    options: ['10 J', '20 J', '25 J', '50 J'],
+    correctIdx: 2,
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(59,130,246,0.6)]'
+  },
+  {
+    label: 'Chemistry',
+    icon: '⚗️',
+    question: 'The number of moles of solute per kilogram of solvent is called:',
+    visualType: 'formula',
+    formula: 'm = n / W_solvent',
+    options: ['Molarity', 'Molality', 'Normality', 'Mole fraction'],
+    correctIdx: 1,
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(217,70,239,0.6)]'
+  },
+  {
+    label: 'Biology',
+    icon: '🧬',
+    question: 'Which of the following structures contains DNA in eukaryotic cells?',
+    visualType: 'formula',
+    formula: '5′ — A T G C — 3′',
+    options: ['Cell wall', 'Cytoplasm', 'Nucleus & Mitochondria', 'Lysosome'],
+    correctIdx: 2,
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(16,185,129,0.6)]'
+  }
+];
+
 export default function OfflineTests() {
+  const [activeQ, setActiveQ] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveQ((prev) => (prev + 1) % practiceQuestions.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
+
+  const q = practiceQuestions[activeQ];
+
   const features = [
     {
       title: "Infinite Variations",
@@ -48,62 +105,104 @@ export default function OfflineTests() {
         </div>
 
         {/* Right Side: Mockup (Practice to Perfection) */}
-        <div className="relative">
-          <div className="absolute inset-0 bg-brand-gold/10 blur-[120px] rounded-full animate-pulse" />
-          
-          <div className="relative glass-card aspect-[4/3] rounded-[2.5rem] p-3 border-white/10 shadow-2xl overflow-hidden bg-gradient-to-br from-indigo-900 to-slate-900">
-            <div className="absolute inset-2 rounded-[1.8rem] flex flex-col overflow-hidden bg-[#1A1B23]">
-              
-              {/* UI Header */}
-              <div className="h-20 flex items-center justify-center relative border-b border-white/5">
-                 <div className="flex items-center gap-2">
-                    <span className="text-2xl font-black text-brand-orange tracking-tighter">THE SK</span>
-                    <span className="text-xs font-bold text-white/40 uppercase tracking-widest mt-1">Practice</span>
-                 </div>
+        <div className="relative max-w-md sm:max-w-lg md:max-w-xl lg:max-w-full mx-auto w-full">
+          {/* Ambient halos */}
+          <div className="hidden sm:block absolute -top-16 -right-16 w-48 h-48 md:w-72 md:h-72 bg-brand-orange/25 rounded-full blur-[120px] animate-pulse" />
+          <div className="hidden sm:block absolute -bottom-16 -left-16 w-48 h-48 md:w-72 md:h-72 bg-brand-gold/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1.2s' }} />
+
+          {/* Premium gradient border frame */}
+          <div className="absolute -inset-[2px] rounded-[2.6rem] bg-gradient-to-br from-brand-gold/60 via-brand-orange/40 to-brand-gold/60 opacity-80 blur-[3px]" />
+
+          <div className={`relative aspect-[4/3] rounded-[2.5rem] p-[2px] overflow-hidden bg-gradient-to-br from-white/15 via-white/5 to-white/15 transition-shadow duration-700 ${q.themeRing}`}>
+            <div className="relative w-full h-full rounded-[2.45rem] p-3 overflow-hidden bg-gradient-to-br from-indigo-900 to-slate-900">
+              <div className="absolute inset-2 rounded-[1.8rem] flex flex-col overflow-hidden bg-[#1A1B23] border border-white/10">
+
+                {/* UI Header */}
+                <div className="h-20 flex items-center justify-center relative border-b border-white/5">
+                   <div className="flex items-center gap-2">
+                      <span className="text-2xl font-black text-brand-orange tracking-tighter">THE SK</span>
+                      <span className="text-xs font-bold text-white/40 uppercase tracking-widest mt-1">Practice</span>
+                      <span className="ml-1 px-1.5 py-0.5 rounded text-[7px] font-black uppercase tracking-widest bg-gradient-to-r from-brand-gold to-amber-300 text-slate-900">PRO</span>
+                   </div>
+                </div>
+
+                {/* Practice Area */}
+                <div className="flex-1 p-4 md:p-6 flex flex-col items-center justify-center text-center space-y-5 relative">
+                   {/* Floating ambient particles */}
+                   <div className="absolute top-1/4 left-1/4 w-1 h-1 rounded-full bg-brand-gold/60 animate-float pointer-events-none" />
+                   <div className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-brand-orange/60 animate-float pointer-events-none" style={{ animationDelay: '2s' }} />
+                   <div className="absolute top-1/2 right-1/3 w-1 h-1 rounded-full bg-white/40 animate-float pointer-events-none" style={{ animationDelay: '3.5s' }} />
+
+                   <h3 className="text-2xl font-serif font-black text-white">Practice to <span className="text-brand-gold italic">Perfection</span></h3>
+
+                   {/* Subject Pills */}
+                   <div className="flex items-center gap-1.5 overflow-x-auto">
+                     {practiceQuestions.map((p, idx) => {
+                       const isActive = idx === activeQ;
+                       return (
+                         <button
+                           key={p.label}
+                           onClick={() => setActiveQ(idx)}
+                           className={`relative shrink-0 px-2.5 py-1 rounded-full text-[8px] font-black uppercase tracking-widest flex items-center gap-1 overflow-hidden transition-all duration-500 ${
+                             isActive
+                               ? 'bg-gradient-to-r from-brand-orange to-amber-400 text-slate-900 shadow-lg shadow-brand-orange/30 scale-105'
+                               : 'bg-white/5 text-white/60 hover:bg-white/10 backdrop-blur-md border border-white/5'
+                           }`}
+                         >
+                           {isActive && (
+                             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer pointer-events-none" />
+                           )}
+                           <span className={`text-xs ${isActive ? 'scale-110' : 'opacity-60'}`}>{p.icon}</span>
+                           {p.label}
+                         </button>
+                       );
+                     })}
+                   </div>
+
+                   {/* Question Card */}
+                   <div key={`card-${activeQ}`} className="w-full bg-white rounded-2xl p-4 md:p-5 shadow-2xl space-y-4 text-left animate-fade-slide relative z-10">
+                      <p className="text-[10px] font-bold text-slate-800 leading-tight">
+                         {q.question}
+                      </p>
+                      <div className="flex justify-center py-3">
+                         {q.visualType === 'matrix' ? (
+                           <div className="flex gap-4 items-center">
+                              <div className="p-2 border-2 border-slate-200 rounded text-[10px] font-mono whitespace-pre">
+                                 {q.matrixLeft}
+                              </div>
+                              <span className="text-slate-400 font-bold">=</span>
+                              <div className="p-2 border-2 border-slate-200 rounded text-[10px] font-mono whitespace-pre">
+                                 {q.matrixRight}
+                              </div>
+                           </div>
+                         ) : (
+                           <div className="px-4 py-2 border-2 border-slate-200 rounded text-[12px] font-mono text-slate-700">
+                              {q.formula}
+                           </div>
+                         )}
+                      </div>
+
+                      {/* Options */}
+                      <div className="space-y-2">
+                         {q.options.map((opt, i) => (
+                           <div key={i} className={`p-2.5 border rounded-xl text-[9px] font-bold ${i === q.correctIdx ? 'border-brand-orange bg-orange-50 text-brand-orange' : 'border-slate-100 text-slate-500'}`}>
+                             {i + 1}) {opt}
+                           </div>
+                         ))}
+                      </div>
+                   </div>
+                </div>
+
+                {/* Bottom Decorative Circles */}
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-orange/20 rounded-full blur-3xl" />
+                <div className="absolute -bottom-20 right-10 w-60 h-60 bg-brand-gold/10 rounded-full blur-3xl" />
               </div>
-
-              {/* Practice Area */}
-              <div className="flex-1 p-8 flex flex-col items-center justify-center text-center space-y-8">
-                 <h3 className="text-3xl font-serif font-black text-white">Practice to <span className="text-brand-gold italic">Perfection</span></h3>
-                 
-                 {/* Question Card */}
-                 <div className="w-full bg-white rounded-2xl p-6 shadow-2xl space-y-6 text-left">
-                    <p className="text-[10px] font-bold text-slate-800 leading-tight">
-                       Which of the given values of x and y make the following matrices equal?
-                    </p>
-                    <div className="flex justify-center py-4">
-                       <div className="flex gap-4 items-center">
-                          <div className="p-2 border-2 border-slate-200 rounded text-[10px] font-mono">
-                             [3x+7  5]<br/>[y+1   2-3x]
-                          </div>
-                          <span className="text-slate-400 font-bold">=</span>
-                          <div className="p-2 border-2 border-slate-200 rounded text-[10px] font-mono">
-                             [0  y-2]<br/>[8  4]
-                          </div>
-                       </div>
-                    </div>
-
-                    {/* Options */}
-                    <div className="space-y-2">
-                       {[
-                         'x = -7/3, y = 8',
-                         'x = -2/3, y = 7',
-                         'x = -1/3, y = 8',
-                         'x = -7/3, y = 5'
-                       ].map((opt, i) => (
-                         <div key={i} className={`p-3 border rounded-xl text-[9px] font-bold ${i === 2 ? 'border-brand-orange bg-orange-50 text-brand-orange' : 'border-slate-100 text-slate-500'}`}>
-                           {i + 1}) {opt}
-                         </div>
-                       ))}
-                    </div>
-                 </div>
-              </div>
-
-              {/* Bottom Decorative Circles */}
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-orange/20 rounded-full blur-3xl" />
-              <div className="absolute -bottom-20 right-10 w-60 h-60 bg-brand-gold/10 rounded-full blur-3xl" />
             </div>
           </div>
+
+          {/* Floating accents */}
+          <div className="hidden md:block absolute -right-4 top-1/2 w-6 h-6 bg-brand-gold rotate-45 animate-float shadow-lg shadow-brand-gold/30" />
+          <div className="hidden md:block absolute -left-4 top-1/4 w-4 h-4 bg-brand-orange rotate-12 animate-float shadow-lg shadow-brand-orange/30" style={{ animationDelay: '1s' }} />
         </div>
 
       </div>

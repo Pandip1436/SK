@@ -95,7 +95,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-28">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20 md:pt-28 pb-20 md:pb-24">
       {/* Warp Speed Star Field Canvas */}
       <canvas
         ref={canvasRef}
@@ -104,7 +104,7 @@ export default function Hero() {
 
       {/* Animated Concentric Rings */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
-        <div className="relative w-[900px] h-[900px]">
+        <div className="relative w-[900px] h-[900px] max-w-[90vw] max-h-[90vw] md:max-w-none md:max-h-none">
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
@@ -122,8 +122,8 @@ export default function Hero() {
       {/* Central Glowing Orb */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[2]">
         <div className="relative">
-          <div className="w-[400px] h-[400px] rounded-full bg-gradient-radial from-brand-orange/15 via-brand-gold/5 to-transparent blur-[100px] animate-pulse" />
-          <div className="absolute inset-0 w-[400px] h-[400px] rounded-full bg-gradient-radial from-brand-orange/10 to-transparent blur-[60px]"
+          <div className="w-72 h-72 md:w-[400px] md:h-[400px] rounded-full bg-gradient-radial from-brand-orange/15 via-brand-gold/5 to-transparent blur-[100px] animate-pulse" />
+          <div className="absolute inset-0 w-72 h-72 md:w-[400px] md:h-[400px] rounded-full bg-gradient-radial from-brand-orange/10 to-transparent blur-[60px]"
             style={{ animation: 'glow 4s ease-in-out infinite alternate' }}
           />
         </div>
@@ -131,7 +131,7 @@ export default function Hero() {
 
       {/* 3D Rotating Wireframe Torus */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[3]">
-        <div className="w-[700px] h-[700px] hero-torus">
+        <div className="w-[700px] h-[700px] max-w-[95vw] max-h-[95vw] md:max-w-none md:max-h-none hero-torus">
           <svg viewBox="0 0 500 500" className="w-full h-full" fill="none">
             {/* Horizontal ellipses forming torus */}
             {[...Array(18)].map((_, i) => {
@@ -180,9 +180,9 @@ export default function Hero() {
       {/* Floating 3D Geometric Shapes */}
       <div className="absolute inset-0 pointer-events-none z-[5]">
         {/* Octahedron */}
-        <div className="absolute top-[20%] left-[15%] hero-float" style={{ animationDelay: '0s' }}>
+        <div className="absolute top-[14%] left-[5%] sm:top-[20%] sm:left-[15%] hero-float" style={{ animationDelay: '0s' }}>
           <div className="hero-3d-shape" style={{ transform: 'perspective(800px) rotateX(25deg) rotateY(-20deg)' }}>
-            <svg width="60" height="60" viewBox="0 0 60 60" className="drop-shadow-[0_0_20px_rgba(253,184,19,0.4)]">
+            <svg width="40" height="40" className="sm:w-[60px] sm:h-[60px]" viewBox="0 0 60 60" style={{ filter: 'drop-shadow(0 0 20px rgba(253,184,19,0.4))' }}>
               <polygon points="30,5 55,30 30,55 5,30" fill="none" stroke="#FDB813" strokeWidth="1" opacity="0.5" />
               <polygon points="30,5 55,30 30,30" fill="#FDB813" fillOpacity="0.08" stroke="#FDB813" strokeWidth="0.5" />
               <polygon points="30,5 5,30 30,30" fill="#FF6A00" fillOpacity="0.05" stroke="#FF6A00" strokeWidth="0.5" />
@@ -193,7 +193,7 @@ export default function Hero() {
         </div>
 
         {/* Cube */}
-        <div className="absolute top-[25%] right-[18%] hero-float" style={{ animationDelay: '2s' }}>
+        <div className="absolute top-[25%] right-[18%] hero-float hidden md:block" style={{ animationDelay: '2s' }}>
           <div className="hero-3d-shape" style={{ transform: 'perspective(800px) rotateX(20deg) rotateY(25deg)' }}>
             <svg width="55" height="55" viewBox="0 0 55 55" className="drop-shadow-[0_0_15px_rgba(255,106,0,0.3)]">
               <polygon points="15,10 45,10 45,40 15,40" fill="#FF6A00" fillOpacity="0.06" stroke="#FF6A00" strokeWidth="0.8" />
@@ -204,7 +204,7 @@ export default function Hero() {
         </div>
 
         {/* Triangle */}
-        <div className="absolute bottom-[30%] left-[12%] hero-float" style={{ animationDelay: '4s' }}>
+        <div className="absolute bottom-[30%] left-[12%] hero-float hidden md:block" style={{ animationDelay: '4s' }}>
           <div className="hero-3d-shape" style={{ transform: 'perspective(800px) rotateX(-15deg) rotateY(-25deg)' }}>
             <svg width="50" height="50" viewBox="0 0 50 50" className="drop-shadow-[0_0_15px_rgba(253,184,19,0.3)]">
               <polygon points="25,5 48,45 2,45" fill="#FDB813" fillOpacity="0.06" stroke="#FDB813" strokeWidth="0.8" />
@@ -215,9 +215,9 @@ export default function Hero() {
         </div>
 
         {/* Pentagon */}
-        <div className="absolute bottom-[25%] right-[15%] hero-float" style={{ animationDelay: '1s' }}>
+        <div className="absolute bottom-[14%] right-[5%] sm:bottom-[25%] sm:right-[15%] hero-float" style={{ animationDelay: '1s' }}>
           <div className="hero-3d-shape" style={{ transform: 'perspective(800px) rotateX(-20deg) rotateY(15deg)' }}>
-            <svg width="55" height="55" viewBox="0 0 55 55" className="drop-shadow-[0_0_15px_rgba(255,106,0,0.4)]">
+            <svg width="38" height="38" className="sm:w-[55px] sm:h-[55px]" viewBox="0 0 55 55" style={{ filter: 'drop-shadow(0 0 15px rgba(255,106,0,0.4))' }}>
               <polygon points="27.5,5 50,20 42,48 13,48 5,20" fill="#FF6A00" fillOpacity="0.06" stroke="#FF6A00" strokeWidth="0.8" />
               {[0,1,2,3,4].map(i => {
                 const a1 = ((i * 72 - 90) * Math.PI) / 180;
@@ -229,7 +229,7 @@ export default function Hero() {
         </div>
 
         {/* Hexagon */}
-        <div className="absolute top-[55%] left-[8%] hero-float" style={{ animationDelay: '3s' }}>
+        <div className="absolute top-[55%] left-[8%] hero-float hidden md:block" style={{ animationDelay: '3s' }}>
           <div className="hero-3d-shape" style={{ transform: 'perspective(800px) rotateX(10deg) rotateY(-30deg)' }}>
             <svg width="45" height="45" viewBox="0 0 45 45" className="drop-shadow-[0_0_12px_rgba(253,184,19,0.3)]">
               <polygon points="22.5,3 40,12 40,30 22.5,39 5,30 5,12" fill="#FDB813" fillOpacity="0.05" stroke="#FDB813" strokeWidth="0.7" />
@@ -243,22 +243,25 @@ export default function Hero() {
         </div>
 
         {/* Small diamond */}
-        <div className="absolute bottom-[40%] right-[8%] hero-float" style={{ animationDelay: '3.5s' }}>
+        <div className="absolute bottom-[40%] right-[8%] hero-float hidden sm:block" style={{ animationDelay: '3.5s' }}>
           <div className="w-4 h-4 bg-brand-orange/20 border border-brand-orange/40 rotate-45 shadow-[0_0_10px_rgba(255,106,0,0.3)]" />
         </div>
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 text-center max-w-5xl px-6 space-y-8">
+      <div className="relative z-10 text-center max-w-5xl px-4 sm:px-6 space-y-5 sm:space-y-6 md:space-y-8 w-full">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-[11px] font-bold text-white/60 uppercase tracking-[0.2em]">Tamil Nadu's #1 NEET Coaching</span>
+        <div className="inline-flex items-center gap-2 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse shrink-0" />
+          <span className="text-[9px] sm:text-[10px] md:text-[11px] font-bold text-white/60 uppercase tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap">
+            <span className="sm:hidden">India's Premier Coaching</span>
+            <span className="hidden sm:inline">India's Premier Entrance &amp; Board Coaching</span>
+          </span>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-black text-white leading-[0.95] tracking-tight">
-          <span className="block">Where NEET</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-black text-white leading-[0.95] tracking-tight">
+          <span className="block">Where Academic</span>
           <span className="block mt-2">
             <span className="font-script text-brand-gold italic font-normal relative">
               Dreams
@@ -272,16 +275,16 @@ export default function Hero() {
         </h1>
 
         {/* Sub text */}
-        <p className="text-white/75 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-          84 out of 100 students coached by us secure Government MBBS seats. 
+        <p className="text-white/75 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-medium leading-relaxed px-2">
+          From NEET &amp; JEE to Board Exams &amp; Olympiads.
           Join THE SK LEARNINGS — where expert mentorship meets proven results.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-2 sm:px-0">
           <a
             href="#programs"
-            className="group relative px-10 py-4 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full text-sm font-black text-white uppercase tracking-wider overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,106,0,0.3)]"
+            className="group relative px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full text-xs sm:text-sm font-black text-white uppercase tracking-wider overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,106,0,0.3)] text-center"
           >
             <span className="relative z-10">Explore Programs →</span>
             <div className="absolute inset-0 bg-gradient-to-r from-brand-gold to-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -290,27 +293,42 @@ export default function Hero() {
             href="https://wa.me/919095636001"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-10 py-4 rounded-full border border-white/10 text-sm font-bold text-white/70 uppercase tracking-wider hover:bg-white/5 hover:border-white/20 hover:text-white transition-all duration-300"
+            className="px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 rounded-full border border-white/10 text-xs sm:text-sm font-bold text-white/70 uppercase tracking-wider hover:bg-white/5 hover:border-white/20 hover:text-white transition-all duration-300 text-center"
           >
             Book Free Demo
           </a>
         </div>
 
+        {/* Course Marquee */}
+        <div className="relative w-full overflow-hidden pt-4 sm:pt-6 md:pt-8 select-none">
+          <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap gap-6 sm:gap-10 md:gap-12">
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex items-center gap-6 sm:gap-10 md:gap-12">
+                {['NEET', 'JEE', 'NTSE', 'BOARD EXAMS', 'KVPY', 'IGCSE', 'CBSE', 'ICSE', 'ISC', 'OLYMPIAD'].map((course) => (
+                  <span key={course} className="text-[10px] sm:text-xs md:text-sm font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:text-brand-gold transition-colors duration-300">
+                    {course}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Trust Indicators */}
-        <div className="flex flex-wrap items-center justify-center gap-8 pt-8 text-white/25">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-black text-brand-gold/60">500+</span>
-            <span className="text-[10px] font-bold uppercase tracking-wider">Top Rankers</span>
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-4 md:gap-8 pt-4 sm:pt-6 md:pt-8 text-white/25">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">500+</span>
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Top Rankers</span>
           </div>
-          <div className="w-px h-6 bg-white/10" />
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-black text-brand-gold/60">98%</span>
-            <span className="text-[10px] font-bold uppercase tracking-wider">Success Rate</span>
+          <div className="w-px h-5 sm:h-6 bg-white/10" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">98%</span>
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Success Rate</span>
           </div>
-          <div className="w-px h-6 bg-white/10" />
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-black text-brand-gold/60">15+</span>
-            <span className="text-[10px] font-bold uppercase tracking-wider">AIIMS Selections</span>
+          <div className="w-px h-5 sm:h-6 bg-white/10 hidden sm:block" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">15+</span>
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">AIIMS Selections</span>
           </div>
         </div>
       </div>
@@ -319,7 +337,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-bg to-transparent z-20 pointer-events-none" />
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 animate-bounce">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 sm:gap-2 animate-bounce hidden sm:flex">
         <span className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em]">Scroll</span>
         <div className="w-5 h-8 border border-white/15 rounded-full flex items-start justify-center p-1">
           <div className="w-1 h-2 bg-brand-gold/50 rounded-full animate-pulse" />

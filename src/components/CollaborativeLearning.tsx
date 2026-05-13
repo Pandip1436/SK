@@ -1,4 +1,108 @@
+import { useEffect, useState } from 'react';
+
+const gameLevels = [
+  {
+    label: 'Physics',
+    icon: '🔬',
+    title: 'Level 1 — Physics',
+    points: 240,
+    timer: 66,
+    leftHeading: 'Drop the Insulator',
+    rightHeading: 'Drag the Conductor',
+    attempting: 'Sumitra Bhatt',
+    upNext: 'Dinesh Singh Rawat',
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(59,130,246,0.6)]',
+    items: [
+      { name: 'Silver (Ag)', icon: '🥈' },
+      { name: 'Copper (Cu)', icon: '🥉' },
+      { name: 'Distilled H₂O', icon: '💧' },
+      { name: 'Aluminium', icon: '📎' },
+      { name: 'Rubber', icon: '🩹' },
+      { name: 'PVC Plastic', icon: '🔌' },
+      { name: 'Mercury', icon: '🌡️' },
+      { name: 'Graphite', icon: '✏️' }
+    ]
+  },
+  {
+    label: 'Chemistry',
+    icon: '⚗️',
+    title: 'Level 2 — Chemistry',
+    points: 320,
+    timer: 48,
+    leftHeading: 'Drop the Acid',
+    rightHeading: 'Drag the Base',
+    attempting: 'Aarav Mehta',
+    upNext: 'Priya Reddy',
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(217,70,239,0.6)]',
+    items: [
+      { name: 'HCl', icon: '🧪' },
+      { name: 'H₂SO₄', icon: '⚗️' },
+      { name: 'NaOH', icon: '🧫' },
+      { name: 'NH₃', icon: '💨' },
+      { name: 'CH₃COOH', icon: '🍋' },
+      { name: 'KOH', icon: '🧴' },
+      { name: 'Ca(OH)₂', icon: '🥛' },
+      { name: 'HNO₃', icon: '☣️' }
+    ]
+  },
+  {
+    label: 'Biology',
+    icon: '🧬',
+    title: 'Level 3 — Biology',
+    points: 410,
+    timer: 72,
+    leftHeading: 'Drop the Plant Cell Part',
+    rightHeading: 'Drag the Animal Cell Part',
+    attempting: 'Rohit Iyer',
+    upNext: 'Sneha Kapoor',
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(16,185,129,0.6)]',
+    items: [
+      { name: 'Chloroplast', icon: '🌿' },
+      { name: 'Cell Wall', icon: '🧱' },
+      { name: 'Vacuole', icon: '💧' },
+      { name: 'Mitochondria', icon: '⚡' },
+      { name: 'Lysosome', icon: '🛡️' },
+      { name: 'Centrosome', icon: '⭐' },
+      { name: 'Ribosome', icon: '🔵' },
+      { name: 'Nucleus', icon: '🟣' }
+    ]
+  },
+  {
+    label: 'Maths',
+    icon: '📐',
+    title: 'Level 4 — Maths',
+    points: 180,
+    timer: 90,
+    leftHeading: 'Drop the Prime Number',
+    rightHeading: 'Drag the Composite Number',
+    attempting: 'Karan Joshi',
+    upNext: 'Meera Nair',
+    themeRing: 'shadow-[0_0_60px_-15px_rgba(245,158,11,0.6)]',
+    items: [
+      { name: '2', icon: '2️⃣' },
+      { name: '3', icon: '3️⃣' },
+      { name: '4', icon: '4️⃣' },
+      { name: '5', icon: '5️⃣' },
+      { name: '6', icon: '6️⃣' },
+      { name: '7', icon: '7️⃣' },
+      { name: '8', icon: '8️⃣' },
+      { name: '9', icon: '9️⃣' }
+    ]
+  }
+];
+
 export default function CollaborativeLearning() {
+  const [activeLevel, setActiveLevel] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveLevel((prev) => (prev + 1) % gameLevels.length);
+    }, 4500);
+    return () => clearInterval(id);
+  }, []);
+
+  const level = gameLevels[activeLevel];
+
   const features = [
     {
       title: "Group MCQ Tournaments",
@@ -47,56 +151,85 @@ export default function CollaborativeLearning() {
         </div>
 
         {/* Left Side: Mockup */}
-        <div className="relative order-2 lg:order-1">
-          {/* Background glow */}
-          <div className="absolute inset-0 bg-blue-500/20 blur-[120px] rounded-full animate-pulse" />
-          
-          <div className="relative glass-card aspect-[4/3] rounded-[2rem] p-3 border-white/10 shadow-2xl overflow-hidden bg-[#0A0A0A]">
-            {/* Tablet Inner Bezel */}
-            <div className="absolute inset-2 bg-gradient-to-b from-[#e0eaf5] to-[#c8dcf0] rounded-[1.5rem] flex flex-col overflow-hidden shadow-inner">
-              
-              {/* Header Bar */}
-              <div className="h-12 bg-[#4A72B2] flex items-center justify-between px-4 text-white">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-brand-orange rounded flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <span className="font-bold text-lg">Level 1-Physics</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                      <div className="w-3 h-3 bg-white/80 rounded-sm" />
+        <div className="relative order-2 lg:order-1 max-w-md sm:max-w-lg md:max-w-xl lg:max-w-full mx-auto w-full">
+          {/* Ambient halos */}
+          <div className="hidden sm:block absolute -top-16 -right-16 w-48 h-48 md:w-72 md:h-72 bg-brand-orange/25 rounded-full blur-[120px] animate-pulse" />
+          <div className="hidden sm:block absolute -bottom-16 -left-16 w-48 h-48 md:w-72 md:h-72 bg-brand-gold/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1.2s' }} />
+
+          {/* Premium gradient border frame */}
+          <div className="absolute -inset-[2px] rounded-[2.1rem] bg-gradient-to-br from-brand-gold/60 via-brand-orange/40 to-brand-gold/60 opacity-80 blur-[3px]" />
+
+          <div className={`relative aspect-[4/3] rounded-[2rem] p-[2px] overflow-hidden bg-gradient-to-br from-white/15 via-white/5 to-white/15 transition-shadow duration-700 ${level.themeRing}`}>
+            <div className="relative w-full h-full bg-[#0A0A0A] rounded-[1.95rem] p-3 overflow-hidden">
+              {/* Tablet Inner Bezel */}
+              <div className="absolute inset-2 bg-gradient-to-b from-[#e0eaf5] to-[#c8dcf0] rounded-[1.5rem] flex flex-col overflow-hidden shadow-inner">
+
+                {/* Header Bar */}
+                <div className="h-12 bg-[#4A72B2] flex items-center justify-between px-4 text-white">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-6 h-6 bg-brand-orange rounded flex items-center justify-center shrink-0">
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                  ))}
+                    <span key={`title-${activeLevel}`} className="font-bold text-lg animate-fade-slide truncate">{level.title}</span>
+                    <span className="px-1.5 py-0.5 rounded text-[7px] font-black uppercase tracking-widest bg-gradient-to-r from-brand-gold to-amber-300 text-slate-900 shrink-0">LIVE</span>
+                    <span className="relative flex w-2 h-2 shrink-0">
+                      <span className="absolute inset-0 rounded-full bg-red-500 animate-ping opacity-70" />
+                      <span className="relative w-2 h-2 rounded-full bg-red-500" />
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {[...Array(4)].map((_, i) => (
+                      <div key={i} className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white/80 rounded-sm" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+
+                {/* Subject Pills */}
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#3D5F94] overflow-x-auto">
+                  {gameLevels.map((g, idx) => {
+                    const isActive = idx === activeLevel;
+                    return (
+                      <button
+                        key={g.label}
+                        onClick={() => setActiveLevel(idx)}
+                        className={`relative shrink-0 px-2.5 py-1 rounded-full text-[8px] font-black uppercase tracking-widest flex items-center gap-1 overflow-hidden transition-all duration-500 ${
+                          isActive
+                            ? 'bg-gradient-to-r from-brand-orange to-amber-400 text-slate-900 shadow-lg shadow-brand-orange/30 scale-105'
+                            : 'bg-white/10 text-white/70 hover:bg-white/20'
+                        }`}
+                      >
+                        {isActive && (
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer pointer-events-none" />
+                        )}
+                        <span className={`text-xs ${isActive ? 'scale-110' : 'opacity-60'}`}>{g.icon}</span>
+                        {g.label}
+                      </button>
+                    );
+                  })}
+                </div>
 
               {/* Status Bar */}
               <div className="h-8 bg-[#5B85C7] flex items-center justify-between px-6 text-sm font-bold text-white/90">
-                <span>Points - 0</span>
+                <span key={`pts-${activeLevel}`} className="animate-fade-slide">Points - {level.points}</span>
                 <div className="w-px h-4 bg-white/20" />
-                <span>Timer - 66s</span>
+                <span key={`tmr-${activeLevel}`} className="animate-fade-slide">Timer - {level.timer}s</span>
               </div>
 
               {/* Main Content Area */}
-              <div className="flex-1 p-4 grid grid-cols-5 gap-4 relative">
-                
+              <div key={`game-${activeLevel}`} className="flex-1 p-4 grid grid-cols-5 gap-4 relative animate-fade-slide">
+                {/* Floating ambient particles */}
+                <div className="pointer-events-none absolute top-3 left-1/3 w-1 h-1 rounded-full bg-brand-gold/60 animate-float" />
+                <div className="pointer-events-none absolute bottom-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-brand-orange/60 animate-float" style={{ animationDelay: '2s' }} />
+                <div className="pointer-events-none absolute top-1/2 right-1/3 w-1 h-1 rounded-full bg-slate-400/60 animate-float" style={{ animationDelay: '3.5s' }} />
+
                 {/* Left side items to drag */}
                 <div className="col-span-2 grid grid-cols-3 gap-2 place-content-start">
-                  {[
-                    { name: 'Silver (Ag)', icon: '🥈' },
-                    { name: 'Copper (Cu)', icon: '🥉' },
-                    { name: 'Distilled H2O', icon: '💧' },
-                    { name: 'Aluminum', icon: '📎' },
-                    { name: 'Rubber', icon: '🩹' },
-                    { name: 'PVC Plastic', icon: '🔌' },
-                    { name: 'Mercury', icon: '🌡️' },
-                    { name: 'Graphite', icon: '✏️' },
-                  ].map((item) => (
+                  {level.items.map((item) => (
                     <div key={item.name} className="flex flex-col items-center gap-1">
                       <div className="w-10 h-10 bg-white rounded shadow-sm border border-slate-200 flex items-center justify-center text-xl hover:scale-105 transition-transform cursor-grab">
                         {item.icon}
@@ -109,7 +242,7 @@ export default function CollaborativeLearning() {
                 {/* Right side drop zones */}
                 <div className="col-span-3 flex flex-col gap-3">
                   <div className="space-y-1">
-                    <p className="text-[10px] font-bold text-[#2A4365]">Drop the Insulator</p>
+                    <p className="text-[10px] font-bold text-[#2A4365]">{level.leftHeading}</p>
                     <div className="grid grid-cols-4 gap-2">
                       {[...Array(8)].map((_, i) => (
                         <div key={`ins-${i}`} className="w-10 h-10 rounded bg-[#4A72B2] opacity-80 border-2 border-dashed border-white/40 flex items-center justify-center">
@@ -120,12 +253,12 @@ export default function CollaborativeLearning() {
                   </div>
 
                   <div className="space-y-1">
-                    <p className="text-[10px] font-bold text-[#2A4365]">Drag the Conductor</p>
+                    <p className="text-[10px] font-bold text-[#2A4365]">{level.rightHeading}</p>
                     <div className="grid grid-cols-4 gap-2 items-center">
                       <div className="w-10 h-10 bg-white rounded shadow-sm border border-slate-200 flex items-center justify-center text-xl">
-                        💍
+                        {level.items[6]?.icon || '💍'}
                       </div>
-                      <div className="col-span-3 text-[10px] font-bold text-[#2A4365]">Mercury</div>
+                      <div className="col-span-3 text-[10px] font-bold text-[#2A4365]">{level.items[6]?.name || 'Mercury'}</div>
                       <div className="w-10 h-10 rounded bg-[#4A72B2] opacity-80 border-2 border-dashed border-white/40 flex items-center justify-center">
                         <span className="text-white/30 text-[10px]">↓</span>
                       </div>
@@ -165,18 +298,18 @@ export default function CollaborativeLearning() {
 
                   {/* Submit Button */}
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-48">
-                    <button className="w-full py-1.5 bg-[#2D3748] hover:bg-[#1A202C] text-white/90 text-xs font-bold rounded shadow-lg transition-colors border border-white/10">
+                    <button className="w-full py-1.5 bg-gradient-to-br from-brand-orange to-amber-400 text-slate-900 text-xs font-bold rounded shadow-lg shadow-brand-orange/40 hover:scale-105 transition-transform border border-white/10">
                       Submit
                     </button>
                   </div>
                 </div>
 
                 {/* Popover Student Info */}
-                <div className="absolute bottom-8 right-6 w-40 bg-white rounded-lg shadow-xl border border-slate-100 p-3 flex flex-col gap-2 z-10 animate-bounce-slow">
+                <div key={`pop-${activeLevel}`} className="absolute bottom-8 right-6 w-40 bg-white rounded-lg shadow-xl border border-slate-100 p-3 flex flex-col gap-2 z-10 animate-fade-slide">
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="text-[9px] font-bold text-brand-orange uppercase">Attempting</p>
-                      <p className="text-xs font-black text-slate-800">Sumitra Bhatt</p>
+                      <p className="text-xs font-black text-slate-800">{level.attempting}</p>
                     </div>
                     <span className="text-[10px] text-slate-400">❖</span>
                   </div>
@@ -184,15 +317,21 @@ export default function CollaborativeLearning() {
                   <div className="flex justify-between items-end">
                     <div>
                       <p className="text-[9px] font-bold text-brand-orange uppercase">Up Next</p>
-                      <p className="text-[10px] font-bold text-slate-600">Dinesh Singh Rawat</p>
+                      <p className="text-[10px] font-bold text-slate-600">{level.upNext}</p>
                     </div>
                     <span className="w-3 h-3 rounded-full border-2 border-green-500 border-t-transparent animate-spin" />
                   </div>
                 </div>
 
               </div>
+              </div>
             </div>
           </div>
+
+          {/* Floating Accents */}
+          <div className="hidden md:block absolute -right-4 top-1/3 w-6 h-6 bg-brand-gold rotate-45 animate-float shadow-lg shadow-brand-gold/30" />
+          <div className="hidden md:block absolute -left-4 bottom-1/4 w-4 h-4 bg-brand-orange rotate-12 animate-float shadow-lg shadow-brand-orange/30" style={{ animationDelay: '1s' }} />
+          <div className="hidden md:block absolute -right-6 bottom-1/3 w-3 h-3 rounded-full bg-brand-gold/60 animate-float" style={{ animationDelay: '2s' }} />
         </div>
       </div>
     </section>

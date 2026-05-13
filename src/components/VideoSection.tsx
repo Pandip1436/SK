@@ -1,11 +1,11 @@
 export default function VideoSection() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
       {/* Background Vortex (continuation) */}
       <div className="absolute inset-0 hero-vortex opacity-50 pointer-events-none" />
       
       <div className="max-w-3xl mx-auto text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-serif font-black text-white mb-16 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-white mb-10 md:mb-16 leading-tight">
           The Intelligent <span className="font-script text-brand-gold relative">
             classroom
             <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-gold/60" viewBox="0 0 100 10" preserveAspectRatio="none">

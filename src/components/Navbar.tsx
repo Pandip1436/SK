@@ -4,10 +4,10 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = [
-    { name: 'NEET Programs', href: '#programs' },
+    { name: 'Explore Our Courses', href: '#programs' },
     { name: 'Live Classroom', href: '#live-classroom' },
-    { name: 'Expert Faculty', href: '#faculty' },
-    { name: 'Mock Tests', href: '#assessments' },
+    { name: 'Teacher Assistant', href: '#faculty' },
+    { name: 'Assessments', href: '#assessments' },
     { name: 'AI Mentor', href: '#copilot' },
     { name: 'Achievers', href: '#achievers' },
     { name: 'About Us', href: '#about' },
@@ -128,7 +128,7 @@ export default function Navbar() {
              >
                Start Success Journey
              </a>
-             <p className="text-center text-[10px] text-white/20 font-medium tracking-wide">Official NEET Preparation Platform</p>
+             <p className="text-center text-[10px] text-white/20 font-medium tracking-wide">Elite Entrance & Board Preparation</p>
           </div>
         </div>
 
