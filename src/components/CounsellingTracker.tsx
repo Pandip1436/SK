@@ -131,11 +131,11 @@ export default function CounsellingTracker() {
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
 
-        {/* Left Side: Desktop Mockup */}
-        <div className="relative flex justify-center lg:justify-start">
+        {/* Right Side: Desktop Mockup */}
+        <div className="relative flex justify-center lg:justify-end order-2">
           {/* Ambient halos */}
-          <div className="absolute -top-16 -left-16 w-48 h-48 md:w-72 md:h-72 bg-brand-orange/25 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute -bottom-16 -right-16 w-48 h-48 md:w-72 md:h-72 bg-brand-gold/15 rounded-full blur-[120px] animate-pulse hidden sm:block" style={{ animationDelay: '1.2s' }} />
+          <div className="absolute -top-16 -right-16 w-48 h-48 md:w-72 md:h-72 bg-brand-orange/25 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute -bottom-16 -left-16 w-48 h-48 md:w-72 md:h-72 bg-brand-gold/15 rounded-full blur-[120px] animate-pulse hidden sm:block" style={{ animationDelay: '1.2s' }} />
 
           <div className="relative w-full max-w-lg">
             {/* Premium gradient border frame */}
@@ -268,7 +268,7 @@ export default function CounsellingTracker() {
             <div className="hidden md:block absolute -left-4 top-1/4 w-4 h-4 bg-brand-orange rotate-12 animate-float shadow-lg shadow-brand-orange/30" style={{ animationDelay: '2s' }} />
 
             {/* Floating "TN MCC" badge */}
-            <div className="absolute -bottom-6 -right-2 md:-right-6 px-4 py-2.5 bg-black border border-white/10 rounded-2xl shadow-2xl animate-float">
+            <div className="absolute -bottom-6 -left-2 md:-left-6 px-4 py-2.5 bg-black border border-white/10 rounded-2xl shadow-2xl animate-float">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-brand-gold/10 flex items-center justify-center">
                   <svg className="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,8 +285,8 @@ export default function CounsellingTracker() {
           </div>
         </div>
 
-        {/* Right Side: Content */}
-        <div className="space-y-12">
+        {/* Left Side: Content */}
+        <div className="space-y-12 order-1">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-white leading-tight">
               Find Your College, <span className="font-script text-brand-gold italic font-normal block mt-2">In Tamil Nadu</span>

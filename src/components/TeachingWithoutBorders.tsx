@@ -102,8 +102,8 @@ export default function NEETPrograms() {
       </div>
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16 items-start mt-12 md:mt-20">
-        {/* Left Side: Content */}
-        <div className="space-y-10">
+        {/* Right Side: Content */}
+        <div className="space-y-10 order-1 lg:order-2">
           <div className="space-y-4">
             <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
               Smart Planning for Every Aspirant
@@ -127,11 +127,11 @@ export default function NEETPrograms() {
           </div>
         </div>
 
-        {/* Right Side: Mockup */}
-        <div className="relative sticky top-32 max-w-md sm:max-w-lg md:max-w-xl lg:max-w-full mx-auto w-full">
+        {/* Left Side: Mockup */}
+        <div className="relative sticky top-32 max-w-md sm:max-w-lg md:max-w-xl lg:max-w-full mx-auto w-full order-2 lg:order-1">
           {/* Ambient halos */}
-          <div className="absolute -top-16 -right-16 w-48 h-48 md:w-72 md:h-72 bg-brand-orange/25 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute -bottom-16 -left-16 w-48 h-48 md:w-72 md:h-72 bg-brand-gold/15 rounded-full blur-[120px] animate-pulse hidden sm:block" style={{ animationDelay: '1.2s' }} />
+          <div className="absolute -top-16 -left-16 w-48 h-48 md:w-72 md:h-72 bg-brand-orange/25 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute -bottom-16 -right-16 w-48 h-48 md:w-72 md:h-72 bg-brand-gold/15 rounded-full blur-[120px] animate-pulse hidden sm:block" style={{ animationDelay: '1.2s' }} />
 
           {/* Premium gradient border frame */}
           <div className="absolute -inset-[2px] rounded-[1.6rem] bg-gradient-to-br from-brand-gold/60 via-brand-orange/40 to-brand-gold/60 opacity-80 blur-[3px]" />
@@ -313,9 +313,9 @@ export default function NEETPrograms() {
           </div>
 
           {/* Floating Accents */}
-          <div className="hidden md:block absolute -left-4 top-1/2 w-6 h-6 bg-brand-gold rotate-45 animate-float shadow-lg shadow-brand-gold/30" />
-          <div className="hidden md:block absolute -right-4 bottom-1/4 w-4 h-4 bg-brand-orange rotate-12 animate-float shadow-lg shadow-brand-orange/30" style={{ animationDelay: '2s' }} />
-          <div className="hidden md:block absolute -right-6 top-1/4 w-3 h-3 rounded-full bg-brand-gold/60 animate-float" style={{ animationDelay: '1s' }} />
+          <div className="hidden md:block absolute -right-4 top-1/2 w-6 h-6 bg-brand-gold rotate-45 animate-float shadow-lg shadow-brand-gold/30" />
+          <div className="hidden md:block absolute -left-4 bottom-1/4 w-4 h-4 bg-brand-orange rotate-12 animate-float shadow-lg shadow-brand-orange/30" style={{ animationDelay: '2s' }} />
+          <div className="hidden md:block absolute -left-6 top-1/4 w-3 h-3 rounded-full bg-brand-gold/60 animate-float" style={{ animationDelay: '1s' }} />
         </div>
       </div>
     </section>

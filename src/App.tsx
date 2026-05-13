@@ -5,9 +5,12 @@ import VideoSection from './components/VideoSection'
 import ExpertFaculty from './components/TeacherAssistant'
 import NEETPrograms from './components/TeachingWithoutBorders'
 import LiveClassroom from './components/LiveClassroom'
+import ClassRecordingVault from './components/ClassRecordingVault'
+import ConceptReels from './components/ConceptReels'
 import SmarterAssessments from './components/SmarterAssessments'
 import SubjectiveEvaluation from './components/SubjectiveEvaluation'
 import OfflineTests from './components/OfflineTests'
+import OMRAutoGrader from './components/OMRAutoGrader'
 import StudentCopilot from './components/StudentCopilot'
 import StudyPlanner from './components/StudyPlanner'
 import FormulaSheetGenerator from './components/FormulaSheetGenerator'
@@ -30,17 +33,20 @@ function App() {
         <Hero />
         <VideoSection />
         <NEETPrograms />
+        <StudyPlanner />
         <MultilingualSupport />
         <FlashcardMastery />
+        <OMRAutoGrader />
         <LiveClassroom />
-        <FormulaSheetGenerator />
+        <ClassRecordingVault />
+        <ConceptReels />
         <ExpertFaculty />
         <CollaborativeLearning />
+        <FormulaSheetGenerator />
         <SmarterAssessments />
         <SubjectiveEvaluation />
         <OfflineTests />
         <StudentCopilot />
-        <StudyPlanner />
         <CounsellingTracker />
         <InstantDoubtSolving />
         <AskWhileLearning />
