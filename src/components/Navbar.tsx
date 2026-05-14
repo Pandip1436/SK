@@ -69,7 +69,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-screen-2xl mx-auto px-4 md:px-10 h-16 md:h-24 flex items-center justify-between relative z-50">
         {/* Logo Section */}
-        <a href="#" className="flex items-center gap-1.5 md:gap-2 flex-shrink-0 cursor-pointer group">
+        <a href="./" className="flex items-center gap-1.5 md:gap-2 flex-shrink-0 cursor-pointer group">
           <div className="flex flex-col leading-none">
             <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase group-hover:text-brand-gold transition-colors">THE SK</span>
             <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase group-hover:text-brand-gold transition-colors">LEARNINGS</span>
