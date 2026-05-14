@@ -142,6 +142,24 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Powered by */}
+      <div className="border-t border-white/5 bg-black/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-center gap-2">
+          <span className="text-[9px] sm:text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">
+            Powered by
+          </span>
+          <a
+            href="https://unitednexa.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-black bg-gradient-to-r from-brand-orange to-brand-gold bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+          >
+            <span className="w-1 h-1 rounded-full bg-brand-gold animate-pulse" />
+            United Nexa Tech
+          </a>
+        </div>
+      </div>
+
       {/* Decorative gradient line at very bottom */}
       <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/40 to-transparent" />
     </footer>
