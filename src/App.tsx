@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import AboutUs from './components/AboutUs'
@@ -25,6 +26,39 @@ import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
 
 function App() {
+  useEffect(() => {
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>('main > section')
+    );
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const alreadyVisible =
+        rect.top < window.innerHeight && rect.bottom > 0;
+      section.classList.add('reveal-init');
+      if (alreadyVisible) {
+        section.classList.add('reveal-visible');
+      } else {
+        observer.observe(section);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="bg-dark-bg min-h-screen selection:bg-brand-gold selection:text-black">
       <Navbar />

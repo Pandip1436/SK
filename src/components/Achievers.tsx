@@ -1,4 +1,73 @@
+import { useEffect, useRef, useState } from 'react';
+
+function useInView<T extends HTMLElement>(threshold = 0.2) {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, inView };
+}
+
+function CountUp({
+  to,
+  inView,
+  duration = 1400,
+  delay = 0,
+}: {
+  to: number;
+  inView: boolean;
+  duration?: number;
+  delay?: number;
+}) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    let frame: number;
+    let start: number | null = null;
+    const startTimer = window.setTimeout(() => {
+      const step = (ts: number) => {
+        if (start === null) start = ts;
+        const progress = Math.min((ts - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        setValue(Math.round(eased * to));
+        if (progress < 1) frame = requestAnimationFrame(step);
+      };
+      frame = requestAnimationFrame(step);
+    }, delay);
+    return () => {
+      window.clearTimeout(startTimer);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [inView, to, duration, delay]);
+
+  return <>{value}</>;
+}
+
+const yearStats = [
+  { year: '2019', enrolled: 7,  seats: 4,  rate: 57, color: 'from-amber-600 to-amber-400' },
+  { year: '2020', enrolled: 14, seats: 10, rate: 71, color: 'from-brand-orange to-amber-400' },
+  { year: '2021', enrolled: 18, seats: 15, rate: 83, color: 'from-brand-orange to-brand-gold' },
+];
+
 export default function Achievers() {
+  const { ref, inView } = useInView<HTMLDivElement>(0.15);
+
   return (
     <section id="achievers" className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden bg-dark-bg">
       {/* Background glow */}
@@ -16,7 +85,7 @@ export default function Achievers() {
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 md:gap-16 items-start mt-10 md:mt-20">
         {/* Left Side: Content */}
-        <div className="space-y-10">
+        <div ref={ref} className="space-y-10">
           <div className="space-y-4">
             <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
               Individual Coaching Performance in NEET
@@ -32,23 +101,45 @@ export default function Achievers() {
               <thead>
                 <tr className="border-b border-white/10">
                   <th className="p-2 md:p-4 text-xs font-bold text-white/40 uppercase tracking-widest"></th>
-                  <th className="p-2 md:p-4 text-center text-sm font-black text-brand-gold">2019</th>
-                  <th className="p-2 md:p-4 text-center text-sm font-black text-brand-gold">2020</th>
-                  <th className="p-2 md:p-4 text-center text-sm font-black text-brand-gold">2021</th>
+                  {yearStats.map((y, i) => (
+                    <th
+                      key={y.year}
+                      className={`p-2 md:p-4 text-center text-sm font-black text-brand-gold transition-all duration-700 ${
+                        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                      }`}
+                      style={{ transitionDelay: `${i * 120}ms` }}
+                    >
+                      {y.year}
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-white/5">
                   <td className="p-2 md:p-4 text-sm font-bold text-white">Students Enrolled</td>
-                  <td className="p-2 md:p-4 text-center text-xl md:text-2xl font-black text-white">7</td>
-                  <td className="p-2 md:p-4 text-center text-xl md:text-2xl font-black text-white">14</td>
-                  <td className="p-2 md:p-4 text-center text-xl md:text-2xl font-black text-brand-orange">18</td>
+                  {yearStats.map((y, i) => (
+                    <td
+                      key={y.year}
+                      className={`p-2 md:p-4 text-center text-xl md:text-2xl font-black tabular-nums ${
+                        i === yearStats.length - 1 ? 'text-brand-orange' : 'text-white'
+                      }`}
+                    >
+                      <CountUp to={y.enrolled} inView={inView} delay={300 + i * 150} />
+                    </td>
+                  ))}
                 </tr>
                 <tr>
                   <td className="p-2 md:p-4 text-sm font-bold text-white">Govt. MBBS Seats</td>
-                  <td className="p-2 md:p-4 text-center text-xl md:text-2xl font-black text-white">4</td>
-                  <td className="p-2 md:p-4 text-center text-xl md:text-2xl font-black text-white">10</td>
-                  <td className="p-2 md:p-4 text-center text-xl md:text-2xl font-black text-brand-orange">15</td>
+                  {yearStats.map((y, i) => (
+                    <td
+                      key={y.year}
+                      className={`p-2 md:p-4 text-center text-xl md:text-2xl font-black tabular-nums ${
+                        i === yearStats.length - 1 ? 'text-brand-orange' : 'text-white'
+                      }`}
+                    >
+                      <CountUp to={y.seats} inView={inView} delay={500 + i * 150} />
+                    </td>
+                  ))}
                 </tr>
               </tbody>
             </table>
@@ -58,19 +149,27 @@ export default function Achievers() {
           <div className="space-y-4">
             <h4 className="text-lg font-bold text-white">Student Success Rate</h4>
             <div className="space-y-3">
-              {[
-                { year: '2019', rate: 57, color: 'from-amber-600 to-amber-400' },
-                { year: '2020', rate: 71, color: 'from-brand-orange to-amber-400' },
-                { year: '2021', rate: 83, color: 'from-brand-orange to-brand-gold' },
-              ].map((item) => (
-                <div key={item.year} className="flex items-center gap-4">
+              {yearStats.map((item, i) => (
+                <div
+                  key={item.year}
+                  className={`flex items-center gap-4 transition-all duration-700 ${
+                    inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-3'
+                  }`}
+                  style={{ transitionDelay: `${800 + i * 180}ms` }}
+                >
                   <span className="text-sm font-bold text-white/60 w-10">{item.year}</span>
                   <div className="flex-grow h-8 bg-white/5 rounded-full overflow-hidden relative">
                     <div
-                      className={`h-full bg-gradient-to-r ${item.color} rounded-full flex items-center justify-end pr-3 transition-all duration-1000`}
-                      style={{ width: `${item.rate}%` }}
+                      className={`h-full bg-gradient-to-r ${item.color} rounded-full flex items-center justify-end pr-3 transition-[width] ease-out`}
+                      style={{
+                        width: inView ? `${item.rate}%` : '0%',
+                        transitionDuration: '1400ms',
+                        transitionDelay: `${900 + i * 180}ms`,
+                      }}
                     >
-                      <span className="text-xs font-black text-white">{item.rate}%</span>
+                      <span className="text-xs font-black text-white tabular-nums">
+                        <CountUp to={item.rate} inView={inView} delay={900 + i * 180} />%
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -79,15 +178,24 @@ export default function Achievers() {
           </div>
 
           {/* Conversion Ratio */}
-          <div className="glass-card rounded-2xl p-4 md:p-6 flex items-center gap-4 md:gap-6">
+          <div
+            className={`glass-card rounded-2xl p-4 md:p-6 flex items-center gap-4 md:gap-6 transition-all duration-700 ${
+              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '1500ms' }}
+          >
             <div className="flex-grow">
               <p className="text-white/60 text-sm font-bold uppercase tracking-wider mb-1">Our Conversion Ratio</p>
               <p className="text-white text-lg font-bold">Students Got Government MBBS Seats</p>
             </div>
             <div className="text-center flex-shrink-0">
-              <div className="text-4xl font-black text-brand-gold leading-none">84</div>
+              <div className="text-4xl font-black text-brand-gold leading-none tabular-nums">
+                <CountUp to={84} inView={inView} delay={1600} duration={1600} />
+              </div>
               <div className="w-12 h-0.5 bg-white/20 mx-auto my-1" />
-              <div className="text-4xl font-black text-white/80 leading-none">100</div>
+              <div className="text-4xl font-black text-white/80 leading-none tabular-nums">
+                <CountUp to={100} inView={inView} delay={1750} duration={1600} />
+              </div>
             </div>
           </div>
         </div>

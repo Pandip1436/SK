@@ -1,7 +1,51 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string>('');
+
+  useEffect(() => {
+    if (ids.length === 0) return;
+    const ratios: Record<string, number> = {};
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          ratios[entry.target.id] = entry.intersectionRatio;
+        });
+        let bestId = '';
+        let bestRatio = 0;
+        for (const id of ids) {
+          const r = ratios[id] ?? 0;
+          if (r > bestRatio) {
+            bestRatio = r;
+            bestId = id;
+          }
+        }
+        if (bestRatio > 0) setActive(bestId);
+      },
+      {
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: '-20% 0px -50% 0px',
+      }
+    );
+
+    const observed: Element[] = [];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        observer.observe(el);
+        observed.push(el);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [ids.join('|')]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return active;
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const links = [
     { name: 'Explore Our Courses', href: '#programs' },
@@ -12,6 +56,14 @@ export default function Navbar() {
     { name: 'Achievers', href: '#achievers' },
     { name: 'About Us', href: '#about' },
   ];
+
+  const sectionIds = links.map((l) => l.href.replace('#', ''));
+  const activeId = useActiveSection(sectionIds);
+
+  useEffect(() => {
+    const id = window.requestAnimationFrame(() => setMounted(true));
+    return () => window.cancelAnimationFrame(id);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
@@ -31,15 +83,30 @@ export default function Navbar() {
 
         {/* Navigation Links - Desktop Only */}
         <div className="hidden lg:flex items-center gap-8 xl:gap-10 absolute left-1/2 -translate-x-1/2 z-10">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-xs xl:text-sm font-semibold text-white hover:text-brand-gold transition-colors tracking-tight whitespace-nowrap"
-            >
-              {link.name}
-            </a>
-          ))}
+          {links.map((link, i) => {
+            const slug = link.href.replace('#', '');
+            const isActive = activeId === slug;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`group relative text-xs xl:text-sm font-semibold tracking-tight whitespace-nowrap transition-all duration-300 ease-out ${
+                  isActive ? 'text-brand-gold -translate-y-0.5' : 'text-white hover:text-brand-gold hover:-translate-y-0.5'
+                } ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                style={{ transitionDelay: mounted ? '0ms' : `${i * 60}ms` }}
+              >
+                <span className="relative inline-block">
+                  {link.name}
+                  {/* Animated underline */}
+                  <span
+                    className={`pointer-events-none absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-gradient-to-r from-brand-orange via-brand-gold to-brand-orange transition-all duration-300 ease-out ${
+                      isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
+                    }`}
+                  />
+                </span>
+              </a>
+            );
+          })}
         </div>
 
         {/* Right Section - CTA Button Desktop */}
@@ -62,7 +129,7 @@ export default function Navbar() {
           >
             Join
           </a>
-          <button 
+          <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-white p-1.5 focus:outline-none relative w-8 h-8 flex flex-col justify-center items-center gap-1.5"
             aria-label="Toggle Menu"
@@ -78,7 +145,7 @@ export default function Navbar() {
       <div className={`lg:hidden fixed inset-0 z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Solid background to prevent transparency issues */}
         <div className="absolute inset-0 bg-black" />
-        
+
         {/* Internal Header */}
         <div className="relative z-10 flex items-center justify-between px-6 h-20 border-b border-white/5 bg-black">
           <div className="flex items-center gap-2 flex-shrink-0 cursor-pointer">
@@ -87,7 +154,7 @@ export default function Navbar() {
               <span className="text-xl font-black text-brand-orange tracking-tighter uppercase">LEARNINGS</span>
             </div>
           </div>
-          <button 
+          <button
             onClick={() => setIsMenuOpen(false)}
             className="text-white p-2 focus:outline-none w-10 h-10 flex flex-col justify-center items-center gap-1.5"
             aria-label="Close Menu"
@@ -101,34 +168,50 @@ export default function Navbar() {
         <div className="relative z-10 h-[calc(100vh-80px)] flex flex-col justify-between p-10 pt-16 bg-black overflow-y-auto">
           <div className="flex flex-col gap-10">
             <div className="space-y-2">
-               <p className="text-brand-orange text-[10px] font-black uppercase tracking-[0.4em] opacity-60">Navigation</p>
-               <div className="w-8 h-px bg-brand-orange/30" />
+              <p className="text-brand-orange text-[10px] font-black uppercase tracking-[0.4em] opacity-60">Navigation</p>
+              <div className="w-8 h-px bg-brand-orange/30" />
             </div>
 
             <div className="flex flex-col gap-6">
-              {links.map((link, i) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl md:text-3xl font-serif font-black text-white hover:text-brand-gold transition-all duration-300 flex items-baseline gap-4 group"
-                >
-                  <span className="text-[10px] font-mono text-brand-orange/40">0{i + 1}</span>
-                  {link.name}
-                </a>
-              ))}
+              {links.map((link, i) => {
+                const slug = link.href.replace('#', '');
+                const isActive = activeId === slug;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`group relative text-2xl md:text-3xl font-serif font-black transition-all duration-500 ease-out flex items-baseline gap-4 ${
+                      isActive ? 'text-brand-gold translate-x-2' : 'text-white hover:text-brand-gold hover:translate-x-2'
+                    } ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}
+                    style={{ transitionDelay: isMenuOpen ? `${150 + i * 70}ms` : '0ms' }}
+                  >
+                    <span className={`text-[10px] font-mono transition-colors ${isActive ? 'text-brand-gold' : 'text-brand-orange/40 group-hover:text-brand-orange'}`}>
+                      0{i + 1}
+                    </span>
+                    <span className="relative inline-block">
+                      {link.name}
+                      <span
+                        className={`pointer-events-none absolute left-0 bottom-0 h-[2px] rounded-full bg-gradient-to-r from-brand-orange via-brand-gold to-brand-orange transition-all duration-500 ease-out ${
+                          isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
+                        }`}
+                      />
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
 
           <div className="mt-auto pt-10 border-t border-white/5 space-y-6">
-             <a
-               href="https://wa.me/919095636001"
-               onClick={() => setIsMenuOpen(false)}
-               className="w-full py-5 bg-brand-orange text-white text-xs font-black rounded-2xl uppercase tracking-widest shadow-2xl flex items-center justify-center gap-2"
-             >
-               Start Success Journey
-             </a>
-             <p className="text-center text-[10px] text-white/20 font-medium tracking-wide">Elite Entrance & Board Preparation</p>
+            <a
+              href="https://wa.me/919095636001"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full py-5 bg-brand-orange text-white text-xs font-black rounded-2xl uppercase tracking-widest shadow-2xl flex items-center justify-center gap-2"
+            >
+              Start Success Journey
+            </a>
+            <p className="text-center text-[10px] text-white/20 font-medium tracking-wide">Elite Entrance & Board Preparation</p>
           </div>
         </div>
 
@@ -138,4 +221,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
