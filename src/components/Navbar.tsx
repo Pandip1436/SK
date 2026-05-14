@@ -81,8 +81,8 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Navigation Links - Desktop Only */}
-        <div className="hidden lg:flex items-center gap-8 xl:gap-10 absolute left-1/2 -translate-x-1/2 z-10">
+        {/* Navigation Links - Desktop Only (xl and up) */}
+        <div className="hidden xl:flex items-center gap-8 2xl:gap-10 absolute left-1/2 -translate-x-1/2 z-10">
           {links.map((link, i) => {
             const slug = link.href.replace('#', '');
             const isActive = activeId === slug;
@@ -110,7 +110,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Section - CTA Button Desktop */}
-        <div className="hidden lg:flex items-center justify-end w-[180px]">
+        <div className="hidden xl:flex items-center justify-end w-[180px]">
           <a
             href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'm%20ready%20to%20join%20the%20NEET%20success%20journey!"
             target="_blank"
@@ -121,8 +121,8 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Controls */}
-        <div className="lg:hidden flex items-center gap-2 md:gap-4">
+        {/* Mobile Controls (below xl) */}
+        <div className="xl:hidden flex items-center gap-2 md:gap-4">
           <a
             href="https://wa.me/919095636001"
             className="px-3 md:px-4 py-1.5 md:py-2 bg-brand-orange text-white text-[9px] md:text-[10px] font-black rounded-full uppercase tracking-widest shadow-lg shadow-brand-orange/10"
@@ -141,8 +141,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`lg:hidden fixed inset-0 z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      {/* Mobile Menu Overlay (below xl) */}
+      <div className={`xl:hidden fixed inset-0 z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Solid background to prevent transparency issues */}
         <div className="absolute inset-0 bg-black" />
 
