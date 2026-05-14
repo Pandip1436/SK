@@ -65,6 +65,35 @@ export default function Navbar() {
     return () => window.cancelAnimationFrame(id);
   }, []);
 
+  // Keep the URL clean — strip any "#section" hash whenever one appears
+  // (direct visits, nav-link clicks, browser back/forward all flow through here).
+  useEffect(() => {
+    const stripHash = () => {
+      if (!window.location.hash) return;
+      window.history.replaceState(
+        null,
+        '',
+        window.location.pathname + window.location.search
+      );
+    };
+
+    // On mount: if the URL already has a hash, scroll to that section first, then strip.
+    if (window.location.hash) {
+      const targetId = window.location.hash.slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        requestAnimationFrame(() => {
+          target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        });
+      }
+      stripHash();
+    }
+
+    // Any later hash change (from clicking a nav link) — clean again.
+    window.addEventListener('hashchange', stripHash);
+    return () => window.removeEventListener('hashchange', stripHash);
+  }, []);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-screen-2xl mx-auto px-4 md:px-10 h-16 md:h-24 flex items-center justify-between relative z-50">
