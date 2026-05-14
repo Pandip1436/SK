@@ -60,38 +60,16 @@ export default function Navbar() {
   const sectionIds = links.map((l) => l.href.replace('#', ''));
   const activeId = useActiveSection(sectionIds);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setMounted(true));
     return () => window.cancelAnimationFrame(id);
-  }, []);
-
-  // Keep the URL clean — strip any "#section" hash whenever one appears
-  // (direct visits, nav-link clicks, browser back/forward all flow through here).
-  useEffect(() => {
-    const stripHash = () => {
-      if (!window.location.hash) return;
-      window.history.replaceState(
-        null,
-        '',
-        window.location.pathname + window.location.search
-      );
-    };
-
-    // On mount: if the URL already has a hash, scroll to that section first, then strip.
-    if (window.location.hash) {
-      const targetId = window.location.hash.slice(1);
-      const target = document.getElementById(targetId);
-      if (target) {
-        requestAnimationFrame(() => {
-          target.scrollIntoView({ behavior: 'auto', block: 'start' });
-        });
-      }
-      stripHash();
-    }
-
-    // Any later hash change (from clicking a nav link) — clean again.
-    window.addEventListener('hashchange', stripHash);
-    return () => window.removeEventListener('hashchange', stripHash);
   }, []);
 
   return (
@@ -119,6 +97,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`group relative text-xs xl:text-sm font-semibold tracking-tight whitespace-nowrap transition-all duration-300 ease-out ${
                   isActive ? 'text-brand-gold -translate-y-0.5' : 'text-white hover:text-brand-gold hover:-translate-y-0.5'
                 } ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
@@ -209,7 +188,10 @@ export default function Navbar() {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => {
+                      handleNavClick(e, link.href);
+                      setIsMenuOpen(false);
+                    }}
                     className={`group relative text-2xl md:text-3xl font-serif font-black transition-all duration-500 ease-out flex items-baseline gap-4 ${
                       isActive ? 'text-brand-gold translate-x-2' : 'text-white hover:text-brand-gold hover:translate-x-2'
                     } ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}
