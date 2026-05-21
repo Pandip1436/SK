@@ -1,4 +1,16 @@
 export default function Footer() {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href === '#' || href === '') {
+      e.currentTarget.blur();
+      return;
+    }
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    e.currentTarget.blur();
+  };
+
   return (
     <footer className="relative bg-black overflow-hidden">
       {/* Top CTA Band */}
@@ -76,11 +88,11 @@ export default function Footer() {
               Programs
             </h5>
             <ul className="space-y-3 sm:space-y-4 text-sm">
-              <li><a href="#programs" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">NEET & JEE Prep</a></li>
-              <li><a href="#programs" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">CBSE/ICSE/ISC Boards</a></li>
-              <li><a href="#programs" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">NTSE & Olympiads</a></li>
-              <li><a href="#programs" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">KVPY Program</a></li>
-              <li><a href="#programs" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Foundation (Class 8-10)</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">NEET & JEE Prep</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">CBSE/ICSE/ISC Boards</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">NTSE & Olympiads</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">KVPY Program</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Foundation (Class 8-10)</a></li>
             </ul>
           </div>
 
@@ -91,11 +103,9 @@ export default function Footer() {
               Company
             </h5>
             <ul className="space-y-3 sm:space-y-4 text-sm">
-              <li><a href="#about" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">About Us</a></li>
-              <li><a href="#faculty" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Our Faculty</a></li>
-              <li><a href="#achievers" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Achievers</a></li>
-              <li><a href="#" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Careers</a></li>
-              <li><a href="#" className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Blog</a></li>
+              <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">About Us</a></li>
+              <li><a href="#faculty" onClick={(e) => handleNavClick(e, '#faculty')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Our Faculty</a></li>
+              <li><a href="#achievers" onClick={(e) => handleNavClick(e, '#achievers')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Achievers</a></li>
             </ul>
           </div>
 
@@ -133,11 +143,11 @@ export default function Footer() {
             © 2026 THE SK LEARNINGS Private Limited. <span className="block sm:inline">All Rights Reserved.</span>
           </p>
           <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 sm:gap-3 md:gap-6">
-            <a href="#" className="text-[9px] sm:text-[10px] text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold hover:text-white/60 transition-colors duration-300">Privacy Policy</a>
+            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-[9px] sm:text-[10px] text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold hover:text-white/60 transition-colors duration-300">Privacy Policy</a>
             <span className="hidden sm:block w-1 h-1 bg-white/10 rounded-full" />
-            <a href="#" className="text-[9px] sm:text-[10px] text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold hover:text-white/60 transition-colors duration-300">Terms of Use</a>
+            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-[9px] sm:text-[10px] text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold hover:text-white/60 transition-colors duration-300">Terms of Use</a>
             <span className="hidden sm:block w-1 h-1 bg-white/10 rounded-full" />
-            <a href="#" className="text-[9px] sm:text-[10px] text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold hover:text-white/60 transition-colors duration-300">Refund Policy</a>
+            <a href="#" onClick={(e) => handleNavClick(e, '#')} className="text-[9px] sm:text-[10px] text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold hover:text-white/60 transition-colors duration-300">Refund Policy</a>
           </div>
         </div>
       </div>
