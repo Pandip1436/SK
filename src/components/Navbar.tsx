@@ -48,11 +48,12 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   const links = [
-    { name: 'Explore Our Courses', href: '#programs' },
+    { name: 'Courses', href: '#programs' },
     { name: 'Live Classroom', href: '#live-classroom' },
     { name: 'Teacher Assistant', href: '#faculty' },
     { name: 'Assessments', href: '#assessments' },
     { name: 'AI Mentor', href: '#copilot' },
+    { name: 'Microbatch', href: '#microbatch' },
     { name: 'Achievers', href: '#achievers' },
     { name: 'About Us', href: '#about' },
   ];
@@ -65,6 +66,7 @@ export default function Navbar() {
     const id = href.replace('#', '');
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    e.currentTarget.blur();
   };
 
   useEffect(() => {
@@ -74,9 +76,9 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-screen-2xl mx-auto px-4 md:px-10 h-16 md:h-24 flex items-center justify-between relative z-50">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-8 h-16 md:h-24 flex items-center justify-between gap-4 xl:gap-6">
         {/* Logo Section */}
-        <a href="./" className="flex items-center gap-1.5 md:gap-2 flex-shrink-0 cursor-pointer group">
+        <a href="./" className="flex items-center gap-1.5 md:gap-2 shrink-0 cursor-pointer group">
           <div className="flex flex-col leading-none">
             <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase group-hover:text-brand-gold transition-colors">THE SK</span>
             <span className="text-lg md:text-2xl font-black text-brand-orange tracking-tighter uppercase group-hover:text-brand-gold transition-colors">LEARNINGS</span>
@@ -89,7 +91,7 @@ export default function Navbar() {
         </a>
 
         {/* Navigation Links - Desktop Only (xl and up) */}
-        <div className="hidden xl:flex items-center gap-8 2xl:gap-10 absolute left-1/2 -translate-x-1/2 z-10">
+        <div className="hidden xl:flex flex-1 items-center justify-center gap-5 2xl:gap-7 min-w-0">
           {links.map((link, i) => {
             const slug = link.href.replace('#', '');
             const isActive = activeId === slug;
@@ -98,7 +100,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`group relative text-xs xl:text-sm font-semibold tracking-tight whitespace-nowrap transition-all duration-300 ease-out ${
+                className={`group relative text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight whitespace-nowrap outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm transition-all duration-300 ease-out ${
                   isActive ? 'text-brand-gold -translate-y-0.5' : 'text-white hover:text-brand-gold hover:-translate-y-0.5'
                 } ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                 style={{ transitionDelay: mounted ? '0ms' : `${i * 60}ms` }}
@@ -118,12 +120,12 @@ export default function Navbar() {
         </div>
 
         {/* Right Section - CTA Button Desktop */}
-        <div className="hidden xl:flex items-center justify-end w-[180px]">
+        <div className="hidden xl:flex items-center shrink-0">
           <a
             href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'm%20ready%20to%20join%20the%20NEET%20success%20journey!"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2.5 bg-brand-orange text-white text-xs font-black rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-orange/20"
+            className="px-5 2xl:px-6 py-2.5 bg-brand-orange text-white text-xs font-black rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-orange/20 outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             Join Now
           </a>

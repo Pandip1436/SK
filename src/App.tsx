@@ -20,6 +20,7 @@ import InstantDoubtSolving from './components/InstantDoubtSolving'
 import AskWhileLearning from './components/AskWhileLearning'
 import MultilingualSupport from './components/MultilingualSupport'
 import FlashcardMastery from './components/FlashcardMastery'
+import MicrobatchSystem from './components/MicrobatchSystem'
 import Achievers from './components/Achievers'
 import CollaborativeLearning from './components/CollaborativeLearning'
 import ScrollToTop from './components/ScrollToTop'
@@ -84,6 +85,7 @@ function App() {
         <CounsellingTracker />
         <InstantDoubtSolving />
         <AskWhileLearning />
+        <MicrobatchSystem />
         <Achievers />
         <AboutUs />
 
