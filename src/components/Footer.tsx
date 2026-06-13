@@ -42,16 +42,12 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4 sm:space-y-5 md:space-y-6 text-left">
-            <div className="flex items-center gap-2.5 sm:gap-3 justify-start">
+            <div className="flex items-center justify-start">
               <img
-                src="/SKL Logo-03.png"
+                src="/SKL Logo-02.png"
                 alt="THE SK LEARNINGS"
-                className="w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0"
+                className="h-16 sm:h-20 w-auto object-contain shrink-0"
               />
-              <div className="flex flex-col leading-none">
-                <span className="text-xl sm:text-2xl font-black text-brand-orange tracking-tighter">THE SK</span>
-                <span className="text-xl sm:text-2xl font-black text-brand-orange tracking-tighter">LEARNINGS</span>
-              </div>
             </div>
             <p className="text-white/40 text-xs sm:text-sm leading-relaxed max-w-sm">
               India's premier institute for NEET, JEE, and Board Exams. We bridge the gap between classroom learning and top-tier competition results.
