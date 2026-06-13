@@ -1,28 +1,19 @@
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import AboutUs from './components/AboutUs'
-import VideoSection from './components/VideoSection'
-import ExpertFaculty from './components/TeacherAssistant'
-import NEETPrograms from './components/TeachingWithoutBorders'
-import LiveClassroom from './components/LiveClassroom'
-import ClassRecordingVault from './components/ClassRecordingVault'
-import ConceptReels from './components/ConceptReels'
-import SmarterAssessments from './components/SmarterAssessments'
-import SubjectiveEvaluation from './components/SubjectiveEvaluation'
-import OfflineTests from './components/OfflineTests'
-import OMRAutoGrader from './components/OMRAutoGrader'
-import StudentCopilot from './components/StudentCopilot'
-import StudyPlanner from './components/StudyPlanner'
-import FormulaSheetGenerator from './components/FormulaSheetGenerator'
-import CounsellingTracker from './components/CounsellingTracker'
-import InstantDoubtSolving from './components/InstantDoubtSolving'
-import AskWhileLearning from './components/AskWhileLearning'
-import MultilingualSupport from './components/MultilingualSupport'
-import FlashcardMastery from './components/FlashcardMastery'
+import WhyMicrobatch from './components/WhyMicrobatch'
+import Programs from './components/Programs'
+import ImprovementSystem from './components/ImprovementSystem'
 import MicrobatchSystem from './components/MicrobatchSystem'
+import BestFor from './components/BestFor'
+import WhyTrust from './components/WhyTrust'
+import ParentsExpect from './components/ParentsExpect'
 import Achievers from './components/Achievers'
-import CollaborativeLearning from './components/CollaborativeLearning'
+import Environment from './components/Environment'
+import Testimonials from './components/Testimonials'
+import AboutUs from './components/AboutUs'
+import Location from './components/Location'
+import CounsellingForm from './components/CounsellingForm'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
 
@@ -66,29 +57,19 @@ function App() {
       
       <main>
         <Hero />
-        <VideoSection />
-        <NEETPrograms />
-        <StudyPlanner />
-        <MultilingualSupport />
-        <FlashcardMastery />
-        <OMRAutoGrader />
-        <LiveClassroom />
-        <ClassRecordingVault />
-        <ConceptReels />
-        <ExpertFaculty />
-        <CollaborativeLearning />
-        <FormulaSheetGenerator />
-        <SmarterAssessments />
-        <SubjectiveEvaluation />
-        <OfflineTests />
-        <StudentCopilot />
-        <CounsellingTracker />
-        <InstantDoubtSolving />
-        <AskWhileLearning />
+        <WhyMicrobatch />
         <MicrobatchSystem />
+        <Programs />
+        <ImprovementSystem />
+        <BestFor />
+        <WhyTrust />
+        <ParentsExpect />
         <Achievers />
+        <Environment />
+        <Testimonials />
         <AboutUs />
-
+        <Location />
+        <CounsellingForm />
       </main>
 
       <Footer />
@@ -97,7 +78,7 @@ function App() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'm%20interested%20in%20your%20coaching%20programs!"
+        href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'd%20like%20to%20discuss%20my%20child's%20preparation."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-[60] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group animate-whatsapp-pulse"

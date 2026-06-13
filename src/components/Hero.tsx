@@ -254,48 +254,57 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
           <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse shrink-0" />
           <span className="text-[9px] sm:text-[10px] md:text-[11px] font-bold text-white/60 uppercase tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap">
-            <span className="sm:hidden">India's Premier Coaching</span>
-            <span className="hidden sm:inline">India's Premier Entrance &amp; Board Coaching</span>
+            <span className="sm:hidden">Microbatch Coaching • Madurai</span>
+            <span className="hidden sm:inline">Microbatch Learning • Individual Care • Madurai</span>
           </span>
         </div>
 
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-black text-white leading-[0.95] tracking-tight">
-          <span className="block">Where Academic</span>
+          <span className="block">Where every student is</span>
           <span className="block mt-2">
             <span className="font-script text-brand-gold italic font-normal relative">
-              Dreams
+              noticed &amp; guided
               <svg className="absolute -bottom-3 left-0 w-full h-4 text-brand-gold/40" viewBox="0 0 200 12" preserveAspectRatio="none">
                 <path d="M0 8 Q 40 0, 100 6 Q 160 12, 200 4" fill="none" stroke="currentColor" strokeWidth="2" />
               </svg>
-            </span>{' '}
-            Become
+            </span>
           </span>
-          <span className="block mt-2 text-gradient-gold">Reality</span>
+          <span className="block mt-2 text-gradient-gold">corrected &amp; improved</span>
         </h1>
 
         {/* Sub text */}
         <p className="text-white/75 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-medium leading-relaxed px-2">
-          From NEET &amp; JEE to Board Exams &amp; Olympiads.
-          Join THE SK LEARNINGS — where expert mentorship meets proven results.
+          Microbatch coaching for NEET, JEE &amp; Foundation students in Madurai.
+          Personal attention, structured testing, and individual academic correction — a focused system for serious students.
         </p>
+
+        {/* Audience pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 pt-1">
+          {['NEET Repeaters', '11th–12th Integrated', 'JEE Aspirants', '9th–10th Foundation'].map((aud) => (
+            <span
+              key={aud}
+              className="text-[10px] sm:text-xs font-bold text-white/70 bg-white/[0.04] border border-white/10 rounded-full px-3 py-1.5"
+            >
+              {aud}
+            </span>
+          ))}
+        </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-2 sm:px-0">
           <a
-            href="#programs"
+            href="#counselling"
             className="group relative px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full text-xs sm:text-sm font-black text-white uppercase tracking-wider overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,106,0,0.3)] text-center"
           >
-            <span className="relative z-10">Explore Programs →</span>
+            <span className="relative z-10">Book Parent Counselling →</span>
             <div className="absolute inset-0 bg-gradient-to-r from-brand-gold to-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           <a
-            href="https://wa.me/919095636001"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#programs"
             className="px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 rounded-full border border-white/10 text-xs sm:text-sm font-bold text-white/70 uppercase tracking-wider hover:bg-white/5 hover:border-white/20 hover:text-white transition-all duration-300 text-center"
           >
-            Book Free Demo
+            View Courses
           </a>
         </div>
 
@@ -304,7 +313,7 @@ export default function Hero() {
           <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap gap-6 sm:gap-10 md:gap-12">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-6 sm:gap-10 md:gap-12">
-                {['NEET', 'JEE', 'NTSE', 'BOARD EXAMS', 'KVPY', 'IGCSE', 'CBSE', 'ICSE', 'ISC', 'OLYMPIAD'].map((course) => (
+                {['NEET', 'JEE', 'NEET REPEATERS', '11TH–12TH INTEGRATED', 'JEE INTEGRATED', '9TH–10TH FOUNDATION', 'BOARD + COMPETITIVE'].map((course) => (
                   <span key={course} className="text-[10px] sm:text-xs md:text-sm font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:text-brand-gold transition-colors duration-300">
                     {course}
                   </span>
@@ -314,21 +323,21 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Trust Indicators */}
+        {/* Trust Indicators — the model, not vanity claims */}
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-4 md:gap-8 pt-4 sm:pt-6 md:pt-8 text-white/25">
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">500+</span>
-            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Top Rankers</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">10</span>
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Students per Batch</span>
           </div>
           <div className="w-px h-5 sm:h-6 bg-white/10" />
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">98%</span>
-            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Success Rate</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">Daily</span>
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Testing &amp; Error Analysis</span>
           </div>
           <div className="w-px h-5 sm:h-6 bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">15+</span>
-            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">AIIMS Selections</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">1-on-1</span>
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Academic Correction</span>
           </div>
         </div>
       </div>

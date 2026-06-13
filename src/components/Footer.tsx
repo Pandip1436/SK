@@ -19,19 +19,18 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 md:gap-8 relative z-10">
           <div className="text-center md:text-left space-y-1.5 sm:space-y-2">
             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black text-white leading-tight">
-              Ready to <span className="font-script text-brand-gold italic font-normal">Succeed?</span>
+              See if a microbatch seat fits <span className="font-script text-brand-gold italic font-normal">your child.</span>
             </h3>
             <p className="text-white/50 text-xs sm:text-sm md:text-base font-medium max-w-md mx-auto md:mx-0">
-              Join thousands of students who achieved their dreams with THE SK LEARNINGS.
+              One short, no-obligation counselling call with our team — about where your child stands and what comes next.
             </p>
           </div>
           <a
-            href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'm%20ready%20to%20start%20my%20success%20journey!"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#counselling"
+            onClick={(e) => handleNavClick(e, '#counselling')}
             className="group relative px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full text-[11px] sm:text-xs md:text-sm font-black text-white uppercase tracking-wider overflow-hidden transition-transform duration-300 hover:scale-105 shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/40 whitespace-nowrap shrink-0"
           >
-            <span className="relative z-10">Start Your Journey →</span>
+            <span className="relative z-10">Book Parent Counselling →</span>
             <div className="absolute inset-0 bg-gradient-to-r from-brand-gold to-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
         </div>
@@ -61,7 +60,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/40 text-xs sm:text-sm leading-relaxed max-w-sm">
-              India's premier institute for NEET, JEE, and Board Exams. We bridge the gap between classroom learning and top-tier competition results.
+              An individual-focused microbatch coaching centre in Madurai for NEET, JEE, and Foundation students — where every student is noticed, guided, corrected, and improved.
             </p>
             {/* Social Icons */}
             <div className="flex flex-wrap items-center justify-start gap-2 sm:gap-3 pt-1 sm:pt-2">
@@ -95,11 +94,10 @@ export default function Footer() {
               Programs
             </h5>
             <ul className="space-y-3 sm:space-y-4 text-sm">
-              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">NEET & JEE Prep</a></li>
-              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">CBSE/ICSE/ISC Boards</a></li>
-              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">NTSE & Olympiads</a></li>
-              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">KVPY Program</a></li>
-              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Foundation (Class 8-10)</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">NEET Repeater Program</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">11th–12th NEET Integrated</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">JEE Integrated Program</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">9th–10th Foundation</a></li>
             </ul>
           </div>
 
@@ -111,7 +109,8 @@ export default function Footer() {
             </h5>
             <ul className="space-y-3 sm:space-y-4 text-sm">
               <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">About Us</a></li>
-              <li><a href="#faculty" onClick={(e) => handleNavClick(e, '#faculty')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Our Faculty</a></li>
+              <li><a href="#why-microbatch" onClick={(e) => handleNavClick(e, '#why-microbatch')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Why Microbatch</a></li>
+              <li><a href="#improvement" onClick={(e) => handleNavClick(e, '#improvement')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Our System</a></li>
               <li><a href="#achievers" onClick={(e) => handleNavClick(e, '#achievers')} className="text-white/40 hover:text-brand-gold transition-colors duration-300 hover:translate-x-1 inline-block">Achievers</a></li>
             </ul>
           </div>

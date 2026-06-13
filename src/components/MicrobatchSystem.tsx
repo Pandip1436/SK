@@ -1,75 +1,3 @@
-type Program = {
-  title: string;
-  audience: string;
-  grade: string;
-  tag: string;
-  accent: string;
-  duration: string;
-  subjects: string[];
-  targets: string[];
-  outcomes: string[];
-};
-
-const programs: Program[] = [
-  {
-    title: 'NEET & JEE Integrated Microbatch Program',
-    audience: 'For Grade XI & XII Students',
-    grade: 'Class XI – XII',
-    tag: 'Integrated Track',
-    accent: 'from-brand-orange to-amber-400',
-    duration: '2-Year Integrated',
-    subjects: ['Physics', 'Chemistry', 'Biology', 'Mathematics'],
-    targets: ['NEET-UG', 'JEE Main', 'JEE Advanced', 'CBSE / State Boards'],
-    outcomes: [
-      'Govt. MBBS seat readiness with full PCB syllabus mastery.',
-      'JEE Main + Advanced practice with weekly mock papers.',
-      'Boards covered alongside competitive prep — one timetable.',
-    ],
-  },
-  {
-    title: 'Foundations for NEET / JEE & IISER',
-    audience: 'For Grade IX & X Students',
-    grade: 'Class IX – X',
-    tag: 'Foundation Track',
-    accent: 'from-brand-gold to-yellow-300',
-    duration: '2-Year Foundation',
-    subjects: ['Physics', 'Chemistry', 'Biology', 'Mathematics'],
-    targets: ['NEET Foundation', 'JEE Foundation', 'IISER / Olympiads', 'School Boards'],
-    outcomes: [
-      'Strong conceptual base for Class XI competitive jump.',
-      'IISER & Olympiad-ready problem-solving habits.',
-      'Above-grade-level board scores from day one.',
-    ],
-  },
-];
-
-const features = [
-  {
-    title: '10 Students Per Class',
-    body: 'Microbatches built for focused attention and complete concept clarity — no student gets lost in the crowd.',
-  },
-  {
-    title: 'Individual Academic Analysis',
-    body: 'Every study plan is shaped by a one-on-one academic diagnosis of the student’s current level.',
-  },
-  {
-    title: 'Personalised Intensive Training',
-    body: 'Training that targets each student’s specific learning gaps and competitive exam readiness.',
-  },
-  {
-    title: 'Advanced Assessment System',
-    body: 'Consistent error analysis and tracking, so weak areas are caught and corrected before exam day.',
-  },
-  {
-    title: 'Real NEET Simulation Exams',
-    body: 'Every first Sunday of the month, students sit a real NEET simulation in actual college and school exam centers.',
-  },
-  {
-    title: 'Boards + Competitive in One',
-    body: 'Board syllabus and competitive exam preparation handled together inside one structured system.',
-  },
-];
-
 const dayRoutine = [
   { time: 'Morning',     stage: 'Concept Class',       desc: 'Live, board-driven concept teaching by subject experts.' },
   { time: 'Mid-Morning', stage: 'Practice & Problems', desc: 'Guided problem-solving in NEET / JEE pattern.' },
@@ -136,80 +64,8 @@ export default function MicrobatchSystem() {
         </p>
       </div>
 
-      {/* Expanded program cards */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-5 md:gap-6 relative z-10">
-        {programs.map((p) => (
-          <article
-            key={p.title}
-            className="relative glass-card rounded-3xl p-6 md:p-8 overflow-hidden group hover:border-brand-gold/40 transition-colors"
-          >
-            <div className={`absolute -top-24 -right-24 w-56 h-56 bg-gradient-to-br ${p.accent} opacity-20 blur-3xl rounded-full pointer-events-none group-hover:opacity-30 transition-opacity`} />
-
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-block text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange/90 bg-brand-orange/10 border border-brand-orange/20 rounded-full px-3 py-1">
-                {p.tag}
-              </span>
-              <span className="inline-block text-[10px] font-black uppercase tracking-[0.3em] text-white/60 bg-white/5 border border-white/10 rounded-full px-3 py-1">
-                {p.duration}
-              </span>
-            </div>
-
-            <h3 className="mt-5 text-2xl md:text-3xl font-bold text-white leading-tight">
-              {p.title}
-            </h3>
-
-            <div className={`mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r ${p.accent} text-slate-900 text-xs md:text-sm font-black uppercase tracking-wider shadow-lg`}>
-              {p.audience}
-            </div>
-
-            {/* Subjects */}
-            <div className="mt-6 space-y-2">
-              <p className="text-[10px] font-black uppercase tracking-widest text-white/40">Subjects</p>
-              <div className="flex flex-wrap gap-1.5">
-                {p.subjects.map((s) => (
-                  <span
-                    key={s}
-                    className="text-xs font-bold text-white/80 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Target exams */}
-            <div className="mt-5 space-y-2">
-              <p className="text-[10px] font-black uppercase tracking-widest text-white/40">Target Exams</p>
-              <div className="flex flex-wrap gap-1.5">
-                {p.targets.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs font-bold text-brand-gold bg-brand-gold/10 border border-brand-gold/20 rounded-lg px-2.5 py-1"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Outcomes */}
-            <div className="mt-5 space-y-2">
-              <p className="text-[10px] font-black uppercase tracking-widest text-white/40">What students achieve</p>
-              <ul className="space-y-1.5">
-                {p.outcomes.map((o) => (
-                  <li key={o} className="flex items-start gap-2 text-sm text-white/70 leading-snug">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0" />
-                    <span>{o}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </div>
-
       {/* Brochure Showcase — Premium Display */}
-      <div className="max-w-6xl mx-auto mt-14 md:mt-20 relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-8 md:mb-12 space-y-2">
           <p className="text-brand-orange text-[11px] md:text-xs font-black uppercase tracking-[0.4em]">
             The complete picture
@@ -303,38 +159,6 @@ export default function MicrobatchSystem() {
               <span className="transition-transform group-hover:translate-x-0.5">↗</span>
             </a>
           </div>
-        </div>
-      </div>
-
-      {/* Six pillars / feature grid */}
-      <div className="max-w-6xl mx-auto mt-14 md:mt-20 relative z-10">
-        <div className="text-center mb-8 md:mb-10 space-y-2">
-          <p className="text-brand-orange text-[11px] md:text-xs font-black uppercase tracking-[0.4em]">
-            Six pillars
-          </p>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-            What every microbatch student gets
-          </h3>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {features.map((f, i) => (
-            <div
-              key={f.title}
-              className="glass-card rounded-2xl p-5 md:p-6 hover:border-brand-gold/30 transition-colors group"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-brand-gold flex items-center justify-center text-sm font-black text-slate-900 shrink-0 shadow-md">
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <div className="space-y-1.5">
-                  <h4 className="text-base md:text-lg font-bold text-white group-hover:text-brand-gold transition-colors">
-                    {f.title}
-                  </h4>
-                  <p className="text-white/60 text-sm leading-relaxed">{f.body}</p>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 

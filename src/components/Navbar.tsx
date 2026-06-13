@@ -48,14 +48,13 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   const links = [
+    { name: 'Why Microbatch', href: '#why-microbatch' },
     { name: 'Courses', href: '#programs' },
-    { name: 'Live Classroom', href: '#live-classroom' },
-    { name: 'Teacher Assistant', href: '#faculty' },
-    { name: 'Assessments', href: '#assessments' },
-    { name: 'AI Mentor', href: '#copilot' },
-    { name: 'Microbatch', href: '#microbatch' },
+    { name: 'Our System', href: '#improvement' },
+    { name: 'For Parents', href: '#why-trust' },
     { name: 'Achievers', href: '#achievers' },
-    { name: 'About Us', href: '#about' },
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#counselling' },
   ];
 
   const sectionIds = links.map((l) => l.href.replace('#', ''));
@@ -129,22 +128,22 @@ export default function Navbar() {
         {/* Right Section - CTA Button Desktop */}
         <div className="hidden xl:flex items-center shrink-0">
           <a
-            href="https://wa.me/919095636001?text=Hi%20THE%20SK%20LEARNINGS,%20I'm%20ready%20to%20join%20the%20NEET%20success%20journey!"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 2xl:px-6 py-2.5 bg-brand-orange text-white text-xs font-black rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-orange/20 outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            href="#counselling"
+            onClick={(e) => handleNavClick(e, '#counselling')}
+            className="px-5 2xl:px-6 py-2.5 bg-brand-orange text-white text-xs font-black rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-orange/20 outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black whitespace-nowrap"
           >
-            Join Now
+            Book Counselling
           </a>
         </div>
 
         {/* Mobile Controls (below xl) */}
         <div className="xl:hidden flex items-center gap-2 md:gap-4">
           <a
-            href="https://wa.me/919095636001"
+            href="#counselling"
+            onClick={(e) => handleNavClick(e, '#counselling')}
             className="px-3 md:px-4 py-1.5 md:py-2 bg-brand-orange text-white text-[9px] md:text-[10px] font-black rounded-full uppercase tracking-widest shadow-lg shadow-brand-orange/10"
           >
-            Join
+            Enquire
           </a>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -237,13 +236,16 @@ export default function Navbar() {
 
           <div className="mt-auto pt-10 border-t border-white/5 space-y-6">
             <a
-              href="https://wa.me/919095636001"
-              onClick={() => setIsMenuOpen(false)}
+              href="#counselling"
+              onClick={(e) => {
+                handleNavClick(e, '#counselling');
+                setIsMenuOpen(false);
+              }}
               className="w-full py-5 bg-brand-orange text-white text-xs font-black rounded-2xl uppercase tracking-widest shadow-2xl flex items-center justify-center gap-2"
             >
-              Start Success Journey
+              Book Parent Counselling
             </a>
-            <p className="text-center text-[10px] text-white/20 font-medium tracking-wide">Elite Entrance & Board Preparation</p>
+            <p className="text-center text-[10px] text-white/20 font-medium tracking-wide">Microbatch Learning · Individual Care</p>
           </div>
         </div>
 

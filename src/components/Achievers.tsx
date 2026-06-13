@@ -185,11 +185,16 @@ export default function Achievers() {
 
       {/* Header */}
       <div className="max-w-7xl mx-auto text-center mb-16 space-y-4 relative z-10">
+        <p className="text-brand-orange text-[11px] md:text-xs font-black uppercase tracking-[0.4em]">
+          Results come from a system
+        </p>
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-black text-white leading-[0.95] tracking-tight">
           Our <span className="font-script text-brand-gold italic font-normal">Achievers</span>
         </h2>
         <p className="text-white/80 max-w-3xl mx-auto text-lg md:text-xl font-medium">
-          Real students. Real results. Our structured microbatch system has consistently delivered Government MBBS seats and top JEE ranks year after year.
+          We do not believe in random preparation. Students are trained through a structured cycle of teaching,
+          testing, error analysis, correction, and revision — so they always know where they stand and what must
+          improve next. These are the results that system produces.
         </p>
 
         {/* Headline 2025/2026 highlights */}
