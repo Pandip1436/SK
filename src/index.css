@@ -8,6 +8,9 @@
   --font-serif: 'Playfair Display', serif;
   --font-script: 'Caveat', cursive;
 
+  /* --font-sans: 'Montserrat', system-ui, sans-serif;
+  --font-serif: 'Montserrat', system-ui, sans-serif;
+  --font-script: 'Montserrat', system-ui, sans-serif; */
   @keyframes float {
 
     0%,

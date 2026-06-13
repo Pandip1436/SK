@@ -76,14 +76,25 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-screen-2xl mx-auto px-4 md:px-8 h-20 md:h-28 flex items-center justify-between gap-4 xl:gap-6">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-6 h-20 md:h-28 flex items-center justify-between gap-3 xl:gap-10 2xl:gap-14">
         {/* Logo Section */}
-        <a href="./" className="flex items-center shrink-0 cursor-pointer group">
+        <a href="./" className="flex items-center gap-2 md:gap-3 shrink-0 cursor-pointer group">
           <img
-            src="/SKL Logo-02.png"
+            src="/SKL Logo-03.png"
             alt="THE SK LEARNINGS"
-            className="h-12 md:h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            className="w-14 h-14 md:w-20 md:h-20 object-contain transition-transform duration-500 group-hover:scale-105"
           />
+          <div className="flex flex-col leading-tight gap-0.5">
+            <span className="font-sans font-extrabold text-base md:text-xl 2xl:text-2xl text-brand-gold tracking-tight uppercase group-hover:text-brand-orange transition-colors whitespace-nowrap">
+              THE SK LEARNINGS
+            </span>
+            <span className="font-sans font-normal text-[8px] md:text-[9px] 2xl:text-[10px] text-white uppercase tracking-[0.18em] md:tracking-[0.2em] whitespace-nowrap">
+              Private Educational Services
+            </span>
+            <span className="hidden sm:block font-sans font-bold text-[7px] md:text-[8px] 2xl:text-[9px] text-brand-gold uppercase tracking-[0.08em] md:tracking-[0.1em] whitespace-nowrap">
+              Medical <span className="text-brand-gold/50 font-light">/</span> Engineering <span className="text-brand-gold/50 font-light">/</span> Foundations <span className="text-brand-gold/50 font-light">/</span> Junior IAS
+            </span>
+          </div>
         </a>
 
         {/* Navigation Links - Desktop Only (xl and up) */}
@@ -96,7 +107,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`group relative text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight whitespace-nowrap outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm transition-all duration-300 ease-out ${
+                className={`group relative text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight whitespace-nowrap outline-none focus:outline-none transition-all duration-300 ease-out ${
                   isActive ? 'text-brand-gold -translate-y-0.5' : 'text-white hover:text-brand-gold hover:-translate-y-0.5'
                 } ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                 style={{ transitionDelay: mounted ? '0ms' : `${i * 60}ms` }}
@@ -154,12 +165,23 @@ export default function Navbar() {
 
         {/* Internal Header */}
         <div className="relative z-10 flex items-center justify-between px-6 h-20 border-b border-white/5 bg-black">
-          <div className="flex items-center shrink-0 cursor-pointer">
+          <div className="flex items-center gap-2.5 shrink-0 cursor-pointer">
             <img
-              src="/SKL Logo-02.png"
+              src="/SKL Logo-03.png"
               alt="THE SK LEARNINGS"
-              className="h-12 w-auto object-contain"
+              className="w-14 h-14 object-contain"
             />
+            <div className="flex flex-col leading-tight gap-0.5">
+              <span className="font-sans font-extrabold text-lg text-brand-gold tracking-tight uppercase whitespace-nowrap">
+                THE SK LEARNINGS
+              </span>
+              <span className="font-sans font-normal text-[9px] text-white uppercase tracking-[0.2em] whitespace-nowrap">
+                Private Educational Services
+              </span>
+              <span className="font-sans font-bold text-[7px] text-brand-gold uppercase tracking-[0.12em] whitespace-nowrap">
+                Medical <span className="text-brand-gold/50 font-light">/</span> Eng <span className="text-brand-gold/50 font-light">/</span> Foundations <span className="text-brand-gold/50 font-light">/</span> Jr IAS
+              </span>
+            </div>
           </div>
           <button
             onClick={() => setIsMenuOpen(false)}
