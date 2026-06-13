@@ -42,15 +42,15 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4 sm:space-y-5 md:space-y-6 text-left">
-            <div className="flex items-center gap-2 justify-start">
+            <div className="flex items-center gap-2.5 sm:gap-3 justify-start">
+              <img
+                src="/SKL Logo-03.png"
+                alt="THE SK LEARNINGS"
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0"
+              />
               <div className="flex flex-col leading-none">
                 <span className="text-xl sm:text-2xl font-black text-brand-orange tracking-tighter">THE SK</span>
                 <span className="text-xl sm:text-2xl font-black text-brand-orange tracking-tighter">LEARNINGS</span>
-              </div>
-              <div className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center -rotate-12">
-                <svg viewBox="0 0 24 24" className="w-full h-full text-brand-orange fill-current">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                </svg>
               </div>
             </div>
             <p className="text-white/40 text-xs sm:text-sm leading-relaxed max-w-sm">
