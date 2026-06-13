@@ -1,9 +1,16 @@
-// NOTE: Swap the `src` values below with real centre / classroom photographs
-// when available. The current images are the best available assets in /public.
-const photos = [
-  { src: '/about.png', alt: 'Students in a focused microbatch learning session at THE SK LEARNINGS' },
-  { src: '/WhatsApp Image 2026-05-21 at 12.02.01 PM.jpeg', alt: 'Inside THE SK LEARNINGS centre, Madurai' },
-  { src: '/performance-banner.jpg', alt: 'Daily testing and academic correction at THE SK LEARNINGS' },
+const banners = [
+  {
+    src: '/inside_classroom.png',
+    alt: 'Inside THE SK LEARNINGS — premium infrastructure, focused microbatch sessions, personalized attention, regular testing, and mentor support in Madurai',
+  },
+  {
+    src: '/Focused_microbatch.png',
+    alt: 'A focused microbatch class in session at THE SK LEARNINGS — individual attention, concept clarity, and better performance',
+  },
+  {
+    src: '/dailytest.png',
+    alt: 'Daily testing and academic correction process at THE SK LEARNINGS — test, analyse, identify errors, correct, and improve',
+  },
 ];
 
 export default function Environment() {
@@ -23,12 +30,13 @@ export default function Environment() {
         </h2>
         <p className="text-white/70 text-base md:text-lg leading-relaxed">
           A calm, structured space in Madurai built for focus — small batches, close attention, and a steady
-          daily rhythm of teaching, testing, and correction.
+          daily rhythm of teaching, testing, and correction. The environment a student studies in shapes the
+          discipline they build, so we keep ours quiet, organised, and closely supervised.
         </p>
       </div>
 
       {/* Featured video */}
-      <div className="max-w-4xl mx-auto relative z-10 mb-8 md:mb-10">
+      <div className="max-w-4xl mx-auto relative z-10 mb-8 md:mb-12">
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-brand-gold via-brand-orange to-brand-gold rounded-3xl blur-[2px] opacity-60 group-hover:opacity-90 transition-opacity" />
           <div className="relative aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10">
@@ -44,20 +52,19 @@ export default function Environment() {
         </div>
       </div>
 
-      {/* Photo gallery */}
-      <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-4 md:gap-5 relative z-10">
-        {photos.map((p) => (
+      {/* Infographic banners */}
+      <div className="max-w-5xl mx-auto space-y-5 md:space-y-6 relative z-10">
+        {banners.map((b) => (
           <div
-            key={p.src}
-            className="relative glass-card rounded-2xl overflow-hidden border-white/10 group aspect-[4/3]"
+            key={b.src}
+            className="relative glass-card rounded-2xl md:rounded-3xl overflow-hidden border-white/10 shadow-2xl group"
           >
             <img
-              src={p.src}
-              alt={p.alt}
+              src={b.src}
+              alt={b.alt}
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.01]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
           </div>
         ))}
       </div>
