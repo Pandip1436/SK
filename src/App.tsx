@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import WhyMicrobatch from './components/WhyMicrobatch'
 import Programs from './components/Programs'
 import ImprovementSystem from './components/ImprovementSystem'
+import CBTPractice from './components/CBTPractice'
 import MicrobatchSystem from './components/MicrobatchSystem'
 import BestFor from './components/BestFor'
 import WhyTrust from './components/WhyTrust'
@@ -61,6 +62,7 @@ function App() {
         <MicrobatchSystem />
         <Programs />
         <ImprovementSystem />
+        <CBTPractice />
         <BestFor />
         <WhyTrust />
         <ParentsExpect />
