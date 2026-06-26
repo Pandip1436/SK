@@ -1,3 +1,5 @@
+import { useRef, useState } from 'react';
+
 const assessment = [
   {
     title: 'Daily Chapter Tests',
@@ -32,6 +34,28 @@ const brochureCallouts = [
 ];
 
 export default function MicrobatchSystem() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
   return (
     <section
       id="microbatch"
@@ -220,21 +244,61 @@ export default function MicrobatchSystem() {
           {/* Video container */}
           <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
             <video
+              ref={videoRef}
               src="/microvideo.mp4"
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-auto rounded-3xl"
+              className="w-full h-auto rounded-3xl cursor-pointer"
+              onClick={togglePlay}
             />
 
-            {/* Subtle vignette */}
+            {/* Subtle vignette — passes clicks through */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-black/10 rounded-3xl pointer-events-none" />
 
             {/* Top-right badge */}
             <div className="absolute top-3 right-3 md:top-4 md:right-4 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-brand-gold/30 text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold shadow-lg flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
               Microbatch Live
+            </div>
+
+            {/* Play / Pause + Mute / Unmute Controls */}
+            <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 flex items-center gap-2">
+              {/* Play / Pause */}
+              <button
+                onClick={togglePlay}
+                className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-center text-white hover:bg-black/80 hover:border-brand-gold/40 transition-all duration-300 shadow-lg"
+                aria-label={isPlaying ? 'Pause video' : 'Play video'}
+              >
+                {isPlaying ? (
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <rect x="6" y="4" width="4" height="16" rx="1" />
+                    <rect x="14" y="4" width="4" height="16" rx="1" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 md:w-5 md:h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5.14v14l11-7-11-7z" />
+                  </svg>
+                )}
+              </button>
+
+              {/* Mute / Unmute */}
+              <button
+                onClick={toggleMute}
+                className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-center text-white hover:bg-black/80 hover:border-brand-gold/40 transition-all duration-300 shadow-lg"
+                aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+              >
+                {isMuted ? (
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.15a.75.75 0 011.28.53v13.74a.75.75 0 01-1.28.53L6.75 14.25H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.338.023-.672.068-1A2.02 2.02 0 014.51 9.75H6.75z" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.15a.75.75 0 011.28.53v12.74a.75.75 0 01-1.28.53L6.75 15.75H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.338.023-.672.068-1A2.02 2.02 0 014.51 8.25H6.75z" />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
 
