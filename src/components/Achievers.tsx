@@ -549,7 +549,7 @@ export default function Achievers() {
             <p className="text-white/60 text-xs font-bold uppercase tracking-widest">Head, Competitive Exams</p>
             <p className="text-white text-xl font-bold">Mr. Saravanakkumar</p>
             <p className="text-white/60 text-sm mt-1">
-              Leading our NEET & JEE microbatches with personalised study plans, error tracking, and monthly NEET simulation exams.
+              Leading our NEET & JEE microbatches with personalised study plans, error tracking, and monthly NEET &amp; JEE CBT simulation exams.
             </p>
           </div>
         </div>

@@ -245,7 +245,7 @@ export default function Navbar() {
             >
               Book Parent Counselling
             </a>
-            <p className="text-center text-[10px] text-white/20 font-medium tracking-wide">Microbatch Learning · Individual Care</p>
+            <p className="text-center text-[10px] text-white/50 font-medium tracking-wide">Microbatch Learning · Individual Care</p>
           </div>
         </div>
 

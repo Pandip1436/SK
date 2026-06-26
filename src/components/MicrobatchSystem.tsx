@@ -1,12 +1,3 @@
-const dayRoutine = [
-  { time: 'Morning',     stage: 'Concept Class',       desc: 'Live, board-driven concept teaching by subject experts.' },
-  { time: 'Mid-Morning', stage: 'Practice & Problems', desc: 'Guided problem-solving in NEET / JEE pattern.' },
-  { time: 'Afternoon',   stage: 'Doubt Clearing',      desc: 'Open floor — every question gets answered before moving on.' },
-  { time: 'Evening',     stage: 'Daily Test',          desc: 'Chapter-wise quiz covering what was taught that day.' },
-  { time: 'Late Evening',stage: 'Error Review',        desc: 'Faculty walk-through of common mistakes from the daily test.' },
-  { time: 'Night',       stage: 'Self-Study Plan',     desc: 'Personalised home practice list — tracked the next morning.' },
-];
-
 const assessment = [
   {
     title: 'Daily Chapter Tests',
@@ -17,8 +8,8 @@ const assessment = [
     body: 'Mixed-chapter practice papers in NEET / JEE pattern, every weekend.',
   },
   {
-    title: 'Monthly NEET Simulation',
-    body: 'First Sunday of every month — full NEET paper in real college & school exam centers.',
+    title: 'Monthly NEET & JEE CBT Simulation',
+    body: 'First Sunday of every month — real NEET (pen-and-paper) & JEE (CBT) simulation exams in actual exam centers.',
   },
   {
     title: 'Error Tracking System',
@@ -37,7 +28,7 @@ const brochureCallouts = [
   { value: '10',     title: 'Students per class',                 body: 'Microbatches sized for true individual attention.' },
   { value: '24/35',  title: 'Govt. MBBS placements in 2025',      body: 'NEET-UG result from our 2025 batch.' },
   { value: '23/28',  title: 'Selected for JEE Advanced 2026',     body: 'Engineering ambition meets microbatch discipline.' },
-  { value: '1st Sun', title: 'Real NEET simulation, every month', body: 'Held in actual college and school exam centers.' },
+  { value: '1st Sun', title: 'Real NEET & JEE CBT simulation, every month', body: 'Held in actual college and school exam centers.' },
 ];
 
 export default function MicrobatchSystem() {
@@ -162,41 +153,6 @@ export default function MicrobatchSystem() {
         </div>
       </div>
 
-      {/* Daily Routine Timeline */}
-      <div className="max-w-6xl mx-auto mt-14 md:mt-20 relative z-10">
-        <div className="text-center mb-8 md:mb-10 space-y-2">
-          <p className="text-brand-orange text-[11px] md:text-xs font-black uppercase tracking-[0.4em]">
-            Inside the day
-          </p>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-            How a microbatch day actually works
-          </h3>
-          <p className="text-white/60 max-w-2xl mx-auto text-sm md:text-base">
-            Concept → Practice → Doubt → Test → Review. Every day. That's the rhythm that makes the difference.
-          </p>
-        </div>
-
-        <ol className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {dayRoutine.map((d, i) => (
-            <li
-              key={d.stage}
-              className="glass-card rounded-2xl p-5 md:p-6 hover:border-brand-orange/30 transition-colors relative"
-            >
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <span className="text-[10px] font-black uppercase tracking-widest text-brand-gold">
-                  Step {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="text-[10px] font-black uppercase tracking-widest text-white/40">
-                  {d.time}
-                </span>
-              </div>
-              <h4 className="text-lg font-bold text-white mb-1.5">{d.stage}</h4>
-              <p className="text-white/60 text-sm leading-relaxed">{d.desc}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-
       {/* Assessment & Simulation */}
       <div className="max-w-6xl mx-auto mt-14 md:mt-20 relative z-10">
         <div className="text-center mb-8 md:mb-10 space-y-2">
@@ -227,10 +183,10 @@ export default function MicrobatchSystem() {
           </div>
           <div className="text-center md:text-left">
             <p className="text-white text-lg md:text-xl font-bold leading-snug">
-              First Sunday of every month — real NEET simulation exam.
+              First Sunday of every month — real NEET &amp; JEE CBT simulation exams.
             </p>
             <p className="text-white/60 text-sm mt-1">
-              Held inside actual college and school exam centers so students walk into NEET day with zero surprise.
+              Held inside actual college and school exam centers so students walk into NEET/JEE day with zero surprise.
             </p>
           </div>
         </div>

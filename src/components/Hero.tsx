@@ -314,7 +314,7 @@ export default function Hero() {
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-6 sm:gap-10 md:gap-12">
                 {['NEET', 'JEE', 'NEET REPEATERS', '11TH–12TH INTEGRATED', 'JEE INTEGRATED', '9TH–10TH FOUNDATION', 'BOARD + COMPETITIVE'].map((course) => (
-                  <span key={course} className="text-[10px] sm:text-xs md:text-sm font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:text-brand-gold transition-colors duration-300">
+                  <span key={course} className="text-[10px] sm:text-xs md:text-sm font-black text-white/70 uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:text-brand-gold transition-colors duration-300">
                     {course}
                   </span>
                 ))}
@@ -324,19 +324,19 @@ export default function Hero() {
         </div>
 
         {/* Trust Indicators — the model, not vanity claims */}
-        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-4 md:gap-8 pt-4 sm:pt-6 md:pt-8 text-white/25">
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-4 md:gap-8 pt-4 sm:pt-6 md:pt-8 text-white/80">
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">10</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold">10</span>
             <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Students per Batch</span>
           </div>
-          <div className="w-px h-5 sm:h-6 bg-white/10" />
+          <div className="w-px h-5 sm:h-6 bg-white/20" />
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">Daily</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold">Daily</span>
             <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Testing &amp; Error Analysis</span>
           </div>
-          <div className="w-px h-5 sm:h-6 bg-white/10 hidden sm:block" />
+          <div className="w-px h-5 sm:h-6 bg-white/20 hidden sm:block" />
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold/60">1-on-1</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif font-black text-brand-gold">1-on-1</span>
             <span className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Academic Correction</span>
           </div>
         </div>
@@ -347,9 +347,9 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 sm:gap-2 animate-bounce hidden sm:flex">
-        <span className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em]">Scroll</span>
-        <div className="w-5 h-8 border border-white/15 rounded-full flex items-start justify-center p-1">
-          <div className="w-1 h-2 bg-brand-gold/50 rounded-full animate-pulse" />
+        <span className="text-[9px] font-bold text-white/60 uppercase tracking-[0.3em]">Scroll</span>
+        <div className="w-5 h-8 border border-white/30 rounded-full flex items-start justify-center p-1">
+          <div className="w-1 h-2 bg-brand-gold rounded-full animate-pulse" />
         </div>
       </div>
     </div>
