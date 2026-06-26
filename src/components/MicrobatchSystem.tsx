@@ -192,6 +192,61 @@ export default function MicrobatchSystem() {
         </div>
       </div>
 
+      {/* Microbatch Video Showcase */}
+      <div className="max-w-5xl mx-auto mt-14 md:mt-20 relative z-10">
+        <div className="text-center mb-8 md:mb-10 space-y-2">
+          <p className="text-brand-orange text-[11px] md:text-xs font-black uppercase tracking-[0.4em]">
+            See it in action
+          </p>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+            Inside a <span className="font-script text-brand-gold italic font-normal">Microbatch</span> Classroom
+          </h3>
+          <p className="text-white/60 max-w-2xl mx-auto text-sm md:text-base">
+            Watch how our structured microbatch system works — small batches, focused teaching, and individual attention in every session.
+          </p>
+        </div>
+
+        <div className="relative group">
+          {/* Ambient halos */}
+          <div className="absolute -top-10 -left-10 w-56 md:w-72 h-56 md:h-72 bg-brand-orange/15 blur-[100px] rounded-full pointer-events-none animate-pulse" />
+          <div
+            className="absolute -bottom-10 -right-10 w-56 md:w-72 h-56 md:h-72 bg-brand-gold/10 blur-[100px] rounded-full pointer-events-none animate-pulse"
+            style={{ animationDelay: '1.5s' }}
+          />
+
+          {/* Gradient border halo */}
+          <div className="absolute -inset-[2px] rounded-[1.6rem] bg-gradient-to-br from-brand-gold/50 via-brand-orange/30 to-brand-gold/50 opacity-70 blur-[3px] group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* Video container */}
+          <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+            <video
+              src="/microvideo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto rounded-3xl"
+            />
+
+            {/* Subtle vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-black/10 rounded-3xl pointer-events-none" />
+
+            {/* Top-right badge */}
+            <div className="absolute top-3 right-3 md:top-4 md:right-4 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-brand-gold/30 text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold shadow-lg flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+              Microbatch Live
+            </div>
+          </div>
+
+          {/* Floating accents */}
+          <div className="hidden md:block absolute -top-3 -right-3 w-5 h-5 bg-brand-gold rotate-45 shadow-lg shadow-brand-gold/40 animate-float" />
+          <div
+            className="hidden md:block absolute -bottom-3 -left-3 w-3.5 h-3.5 bg-brand-orange rounded-full shadow-lg shadow-brand-orange/40 animate-float"
+            style={{ animationDelay: '2s' }}
+          />
+        </div>
+      </div>
+
       {/* Admission Flow */}
       <div className="max-w-6xl mx-auto mt-14 md:mt-20 relative z-10">
         <div className="text-center mb-8 md:mb-10 space-y-2">
