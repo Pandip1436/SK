@@ -20,16 +20,16 @@ const assessment = [
 ];
 
 const admission = [
-  { step: '01', title: 'Enquiry Call',        body: 'Quick chat with our admissions team to understand goals and grade.' },
-  { step: '02', title: 'Academic Diagnosis',  body: 'A one-on-one academic assessment to map current level and gaps.' },
-  { step: '03', title: 'Personalised Plan',   body: 'A study plan + batch recommendation tailored to the student.' },
-  { step: '04', title: 'Batch Allocation',    body: 'Seat confirmed in a 10-student microbatch — classes begin.' },
+  { step: '01', title: 'Enquiry Call', body: 'Quick chat with our admissions team to understand goals and grade.' },
+  { step: '02', title: 'Academic Diagnosis', body: 'A one-on-one academic assessment to map current level and gaps.' },
+  { step: '03', title: 'Personalised Plan', body: 'A study plan + batch recommendation tailored to the student.' },
+  { step: '04', title: 'Batch Allocation', body: 'Seat confirmed in a 10-student microbatch — classes begin.' },
 ];
 
 const brochureCallouts = [
-  { value: '10',     title: 'Students per class',                 body: 'Microbatches sized for true individual attention.' },
-  { value: '24/35',  title: 'Govt. MBBS placements in 2025',      body: 'NEET-UG result from our 2025 batch.' },
-  { value: '23/28',  title: 'Selected for JEE Advanced 2026',     body: 'Engineering ambition meets microbatch discipline.' },
+  { value: '10', title: 'Students per class', body: 'Microbatches sized for true individual attention.' },
+  { value: '24/35', title: 'Govt. MBBS placements in 2025', body: 'NEET-UG result from our 2025 batch.' },
+  { value: '23/28', title: 'Selected for JEE Advanced 2026', body: 'Engineering ambition meets microbatch discipline.' },
   { value: '1st Sun', title: 'Real NEET & JEE CBT simulation, every month', body: 'Held in actual college and school exam centers.' },
 ];
 
@@ -250,7 +250,7 @@ export default function MicrobatchSystem() {
               loop
               muted
               playsInline
-              className="w-full h-auto rounded-3xl cursor-pointer"
+              className="w-full rounded-3xl cursor-pointer object-cover md:aspect-video max-h-[70vh] md:max-h-none"
               onClick={togglePlay}
             />
 
